@@ -19,13 +19,12 @@ Stable raw links (replace `main` with a tag when pinning releases):
 - Logo: `https://raw.githubusercontent.com/a11ystudio/media/main/brand/icon-128.png`
 - Screenshots: `https://raw.githubusercontent.com/a11ystudio/media/main/screenshots/<filename>`
 
-## Monorepo sync
+## How products use this repo
 
-In [`a11y-studio`](https://github.com/a11ystudio/a11y-studio), run from repo root:
+| Product | Uses |
+|---------|------|
+| **a11ystudio.io** | Logo URL above (no file copy in the monorepo) |
+| **VS Code extension** | `pnpm run sync:media` in [`a11y-studio`](https://github.com/a11ystudio/a11y-studio) copies `brand/` → `apps/vscode-extension/media/` for the VSIX |
+| **Marketplace README** | `screenshots/` via `raw.githubusercontent.com` URLs |
 
-```bash
-git submodule update --init media
-pnpm run sync:media
-```
-
-That copies `brand/` into the extension and website build inputs. Do not edit copies in the monorepo without updating this repo first.
+**To change the logo:** edit `brand/icon.svg` here, regenerate PNGs (`icon:render` in the monorepo), commit and push **this repo**. The website updates without redeploying the code monorepo.
