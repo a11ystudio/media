@@ -6,11 +6,45 @@
 
 **Copilot:** Paste the GitHub view link above into Copilot Chat — it can read the full page (use the **Copilot paste — NOW** section when Section A is already done).
 
-**Updated:** 2026-07-07 · Extension **v1.0.5** Marketplace
+**Updated:** 2026-07-07 · Extension **v1.0.5** Marketplace · **Verdict: PARTIAL** (Section A PASS)
 
 ---
 
-## Latest status — paste this summary to vendor chat
+## Immediate operating guidance
+
+1. Continue using **repo-owned `yarn a11y*`** as source of truth for test listing and CI.
+2. Use A11y Studio in **assistive mode** (authoring / inspection / Diagnose) only.
+3. **Do not** switch execution ownership to extension-generated package config yet.
+4. Attach or link this page in vendor follow-up to avoid “fixed in latest” ambiguity.
+
+---
+
+## Pass this to vendor (copy or link this page)
+
+```
+Adoption retest PARTIAL — A11y Studio v1.0.5.
+
+Repo Section A is now PASS on our side:
+- yarn -s a11y --list succeeds
+- current output lists 39 tests in 2 files
+- a11y-studio.json is aligned to adopt-existing mode:
+  - setupMode: adopt-existing
+  - testDir: .
+  - playwrightConfigPath: ../playwright.config.ts
+- current workspace check shows a single active @playwright/test runtime path
+
+Please continue with Section B extension verification on this cleaned baseline:
+- Gate 1 Diagnose
+- Gate 2 spec discovery confirmation in Diagnose
+- Gate 3 Run flow test
+- Gate 4 Record flow
+
+We are sharing only sanitized evidence through approved enterprise channels.
+```
+
+---
+
+## Latest status (internal summary)
 
 ```
 Adoption retest PARTIAL — v1.0.5 — Repo Section A PASS, Section B extension gates pending.
