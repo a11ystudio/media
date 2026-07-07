@@ -42,7 +42,7 @@ Use the **Flow Runner** panel and **Command Palette** (`A11y Studio: …`). Pane
 | --- | --- |
 | **1. Diagnose** | Clean preflight; **`yarn a11y --list`** OK in Output; adopt-existing repair lines if config was wrong |
 | **2. Spec discovery** | Flow Runner lists specs at the correct path; **`auth.setup.spec.ts`** is setup-only (not offered as a flow recording); Settings and Flow Runner agree on config path and spec count |
-| **3. Run flow tests** | **Run this flow test** on one spec — repo or env failures are OK to report; extension must reach Playwright spawn (not “install Playwright” when workspace already has it) |
+| **3. Run all flow tests** | Use **Run all flow tests (N specs)** at the top of the Flow tests section — runs **every** spec (not **Run this flow test**, which is one spec only). Repo or env failures are OK to report; extension must reach Playwright spawn (not “install Playwright” when workspace already has it) |
 | **4. Record flow** | **Record flow** is available when the dev server URL is reachable (greyed = start dev server / VPN, not an extension bug) |
 
 **Workspace scan (static lint):** **Activity Bar → Workspace scan** — **Scan all open packages** and **Scan active file** (in-tree rows and title-bar icons). Results appear in **Problems**.
@@ -59,7 +59,7 @@ Paste to the maintainer via Teams/Slack:
 2. Output of **`yarn a11y --list`**
 3. **`flowRunner`** block from **`a11y-studio.json`** (redact URLs if needed)
 4. Full **Diagnose** output (**Output → A11y Studio Flow Runner**)
-5. **Run this flow test** on one spec — pass/fail and first error line
+5. **Run all flow tests (N specs)** — pass/fail and first error line (not **Run this flow test** unless you are debugging one spec)
 6. Verdict: **Section A** PASS/FAIL · **Section B** ___/4 · **Overall** PASS / PARTIAL / BLOCKED
 
 Optional screenshots: Flow Runner panel (spec list + Playwright status), one failed run if any.
