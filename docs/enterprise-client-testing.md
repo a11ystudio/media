@@ -296,6 +296,25 @@ curl -o enterprise-client-testing-report-template.md \
 
 Fill → save as `enterprise-client-testing-report-YYYY-MM-DD.md` → send to coordinator.
 
+### Paste directly on GitHub (who can do what)
+
+| Who | Can edit on GitHub? | How |
+| --- | --- | --- |
+| **A11y Studio coordinator** | **Yes** | Open the maintainer smoke report → click **✏️ Edit** (pencil) → paste client evidence into `[paste]` blocks → **Commit changes**. Example: [v1.0.5 retest report](https://github.com/a11ystudio/a11y-studio/edit/main/docs/ai/smoke-reports/2026-07-07-corporate-laptop-v1.0.5-retest.md) |
+| **Adoption laptop tester** | **Not on `a11ystudio/media`** | That repo is maintainer-owned; you do not get write access by default. |
+| **Adoption laptop tester** | **Yes — Secret Gist** | [gist.github.com](https://gist.github.com) → **New gist** → paste filled report → set **Secret gist** → send coordinator the gist URL only. |
+| **Adoption laptop tester** | **Yes — your monorepo** | Commit `docs/adoption-retest-YYYY-MM-DD.md` in **your** repo → send coordinator the file link (preferred if your org already uses GitHub). |
+
+**Coordinator workflow (paste client email into GitHub):**
+
+1. Client sends filled report (email, chat, or secret gist link).
+2. You open the smoke report on GitHub (link above) → **Edit this file**.
+3. Paste into Diagnose / `flowRunner` / gate tables → redact customer names and URLs.
+4. Commit message example: `docs: enterprise laptop retest evidence 2026-07-07`
+5. Reply to client with verdict + next step (ship VSIX, fix repo, re-run gate N).
+
+**Do not** paste customer-internal URLs or secrets into the **public** `a11ystudio/media` checklist files — those stay generic. Evidence lives in the **a11y-studio** smoke report (redacted) or stays in email/gist.
+
 ---
 
 *Last updated: 2026-07-07 — v1.0.5 Marketplace + v1.0.6 queued. Maintainer: update this file when Part A gate wording changes.*

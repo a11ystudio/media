@@ -81,14 +81,6 @@ For each open blocker, one row:
 
 ---
 
-## Optional attachments
-
-- [ ] Panel screenshot (Flow Runner after Diagnose)
-- [ ] Screenshot of misleading UI (if reporting extension bug)
-- [ ] Link to internal ticket (if your org uses one)
-
----
-
 ## Coordinator reply template (for you)
 
 Copy when everything passes:
