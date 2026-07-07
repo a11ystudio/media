@@ -81,6 +81,25 @@ For each open blocker, one row:
 
 ---
 
+## Optional attachments
+
+- [ ] Panel screenshot (Flow Runner after Diagnose)
+- [ ] Screenshot of misleading UI (if reporting extension bug)
+- [ ] Link to internal ticket (if your org uses one)
+
+---
+
+## Paste on GitHub (alternative to email)
+
+1. **[gist.github.com](https://gist.github.com)** → **New secret gist**
+2. Filename: `enterprise-client-testing-report-YYYY-MM-DD.md`
+3. Paste this filled template → **Create secret gist**
+4. Send the coordinator **only the gist URL** (use Secret, not Public)
+
+Or commit this file in **your** monorepo under `docs/` and send the GitHub file link.
+
+---
+
 ## Coordinator reply template (for you)
 
 Copy when everything passes:
