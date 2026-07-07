@@ -1,205 +1,79 @@
-# Enterprise adoption — laptop testing brief
+# A11y Studio — enterprise adopt-existing laptop brief
 
-**Fetch (client laptop, no login):** `https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md`
+**Extension:** Marketplace **v1.0.6** · **2026-07-07**
 
-**GitHub view:** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md
+Copilot works on the **customer monorepo only** — not the `a11y-studio` vendor repo.
 
-**Copilot:** Paste the GitHub view link above into Copilot Chat — it can read the full page (use the **Copilot paste — NOW** section when Section A is already done).
-
-**Updated:** 2026-07-07 · Extension **v1.0.6** Marketplace LIVE · **Verdict: PARTIAL** (Section A PASS)
+**Layout:** Flow package **`a11y-playwright/`** (or the path in `flowRunner.testDir` inside `a11y-studio.json`). The **workspace** owns **`playwright.config.ts`** and **`yarn a11y`** at the repo root.
 
 ---
 
-## Immediate operating guidance
+## Before you start
 
-1. Continue using **repo-owned `yarn a11y*`** as source of truth for test listing and CI.
-2. Use A11y Studio in **assistive mode** (authoring / inspection / Diagnose) only.
-3. **Do not** switch execution ownership to extension-generated package config yet.
-4. Attach or link this page in vendor follow-up to avoid “fixed in latest” ambiguity.
-
----
-
-## Pass this to vendor (copy or link this page)
-
-```
-Adoption retest PARTIAL — A11y Studio v1.0.6 Marketplace (update from Extensions if still on 1.0.5).
-
-Repo Section A is now PASS on our side:
-- yarn -s a11y --list succeeds
-- current output lists 39 tests in 2 files
-- a11y-studio.json is aligned to adopt-existing mode:
-  - setupMode: adopt-existing
-  - testDir: .
-  - playwrightConfigPath: ../playwright.config.ts
-- current workspace check shows a single active @playwright/test runtime path
-
-Please continue with Section B extension verification on this cleaned baseline:
-- Gate 1 Diagnose
-- Gate 2 spec discovery confirmation in Diagnose
-- Gate 3 Run flow test
-- Gate 4 Record flow
-
-We are sharing only sanitized evidence through approved enterprise channels.
-```
+1. **Extensions → A11y Studio** — confirm **1.0.6** (`a11ystudio.a11y-studio`).
+2. **Reload Window** after install or update.
+3. For this workspace, disable **`ms-playwright.playwright`** if it is enabled (conflicts with Flow Runner discovery) → **Reload Window** again.
+4. Open **Activity Bar → A11y Studio → Flow Runner** and run **Diagnose Node & Playwright** once. Paste the full log from **Output → A11y Studio Flow Runner**.
 
 ---
 
-## Latest status (internal summary)
+## Section A — Repo (do first)
 
-```
-Adoption retest PARTIAL — v1.0.5 — Repo Section A PASS, Section B extension gates pending.
+Repo-owned **`yarn a11y*`** is the system of record until Section B passes.
 
-Section A (repo): PASS
-- yarn -s a11y --list → Total: 39 tests in 2 files
-- flowRunner: setupMode adopt-existing, testDir ".", playwrightConfigPath "../playwright.config.ts"
-- Single @playwright/test runtime at workspace root (no nested duplicate under flow package)
-- Repo fixes applied: duplicate enrollment test title; auth.setup ESM loader
+1. **`yarn a11y --list`** — must list ≥1 test. If it fails, fix **duplicate `test()` titles** and re-run.
+2. **`auth.setup.spec.ts`** — use **`import`**, not **`require`**, when root `package.json` has `"type": "module"`.
+3. **`--project`** — names must match workspace **`playwright.config.ts`** projects (`client`, `associate`, `shared`, etc.).
+4. **`storageState`** — paths must match where auth files live. If auth is under **`a11y-playwright/.auth/`**, specs must use **`a11y-playwright/.auth/<profile>.json`** (relative to the Playwright config directory), not a bare **`.auth/`** path.
 
-Section B (extension gates 1–4): PENDING — need Diagnose Output + Run/Record evidence
+**Do not:**
 
-Do NOT claim full Part A pass or migration-ready until Section B verified.
-```
-
----
-
-## Scorecard
-
-| Item | Status | Notes |
-| --- | --- | --- |
-| **Section A — repo** | **PASS** | `yarn a11y --list` lists 39 tests |
-| **A1 duplicate titles** | **PASS** | Page-list duplicate enrollment title fixed |
-| **A2 auth.setup ESM** | **PASS** | `require` → `import` under `"type": "module"` |
-| **A3 project names** | **PASS** | Use workspace config projects, not `chromium` |
-| **Gate 1 Diagnose** | **PENDING** | Run via Command Palette; paste Output |
-| **Gate 2 spec discovery** | **LIKELY PASS** | Config aligned — confirm in Diagnose |
-| **Gate 3 Run** | **PENDING** | Needs dev host or note ENV BLOCKED |
-| **Gate 4 Record** | **PENDING** | Needs dev host or note ENV BLOCKED |
-
-**Verdict:** **PARTIAL** · **Part A score:** Section A done · **Gates:** ___ / 4
+- Create **`turbo-flow`**, extra **`tests/a11y`** folders, or duplicate Playwright packages unless the team explicitly owns that layout.
+- Edit **`.vscode/settings.json`** `nodePath` / `playwrightPath` unless **Diagnose** output tells you to.
+- Patch or sideload a VSIX — use Marketplace **1.0.6** only.
 
 ---
 
-## Copilot paste — NOW (Section B only)
+## Section B — Extension (four gates)
 
-**Section A is done. Copy this block into Copilot Chat:**
+Use the **Flow Runner** panel and **Command Palette** (`A11y Studio: …`). Panel **Expand all** / section chevrons should work on **1.0.6** — if a section stays closed, use **Expand all** on the view title bar or run the same action from the Command Palette.
 
-```
-Context: Enterprise adopt-existing monorepo. A11y Studio v1.0.5 Marketplace.
-Section A (repo) is PASS — do not change specs unless Run fails on spec errors.
-
-Confirmed baseline:
-- yarn -s a11y --list → 39 tests in 2 files
-- flowRunner.setupMode: adopt-existing, testDir: ".", playwrightConfigPath: "../playwright.config.ts"
-- Single @playwright/test at workspace root (no nested duplicate under flow package)
-
-Your job: Section B extension gates only.
-
-1) Command Palette → "A11y Studio: Diagnose Node & Playwright setup"
-   Paste full Output log here (redact internal URLs). Gate 1 = PASS/FAIL.
-
-2) Confirm spec discovery (Gate 2): testDir and workspace playwright.config alignment in a11y-studio.json.
-
-3) Gate 3 — Run one flow test if dev server reachable. PASS / FAIL / ENV BLOCKED.
-   If dev host down, say ENV BLOCKED — do not treat as extension P0.
-
-4) Gate 4 — Record flow if dev server up. PASS / FAIL / ENV BLOCKED.
-
-DO NOT fix extension panel UI on v1.0.5 (panel expand known bug — Diagnose via Command Palette only).
-
-Report back with Gate 1–4 table + pasted Diagnose output + yarn a11y --list (already passing).
-Do not claim migration-ready or full Part A pass until all four gates have evidence.
-```
-
----
-
-## Copilot paste — DONE (Section A — keep for reference)
-
-```
-Enterprise adopt-existing monorepo. VS Code: A11y Studio v1.0.5 Marketplace.
-
-Flow package at package root. Workspace owns playwright.config.ts and yarn a11y scripts.
-
-Fix Playwright blockers so yarn a11y --list lists tests:
-
-1) Duplicate test title — make every test() title unique in page-list / all-pages spec.
-2) auth.setup ESM — replace require() with import when package.json type is module.
-3) Playwright projects — read workspace config project names; fix --project in scripts.
-
-STATUS: COMPLETE as of 2026-07-07 — 39 tests listed.
-```
-
----
-
-## Evidence log (fill as you go)
-
-### `yarn a11y --list` — PASS (2026-07-07)
-
-```
-Total: 39 tests in 2 files
-(paste full output below if vendor needs it)
-```
-
-```
-[paste full terminal output — redact paths if required]
-```
-
-### `flowRunner` block — aligned
-
-```json
-{
-  "flowRunner": {
-    "setupMode": "adopt-existing",
-    "testDir": ".",
-    "playwrightConfigPath": "../playwright.config.ts"
-  }
-}
-```
-
-(paste actual block from a11y-studio.json — redact URLs/secrets)
-
-### Diagnose output — Gate 1 (PENDING)
-
-```
-[paste Output → A11y Studio Flow Runner]
-```
-
-### Gate 3 Run / Gate 4 Record (PENDING)
-
-```
-[paste or "ENV BLOCKED — dev host unreachable"]
-```
-
----
-
-## Part A gate definitions
-
-| # | Gate | Pass when |
-| --- | --- | --- |
-| 1 | **Diagnose** | PASS; no dual-runtime warning; `yarn a11y --list` OK |
-| 2 | **Spec discovery** | `flowRunner.testDir` matches spec location; workspace config used |
-| 3 | **Run flow tests** | Single Playwright runtime; env-only failures if host down |
-| 4 | **Record flow** | Record works when dev server is up |
-
----
-
-## v1.0.5 workarounds
-
-| Issue | Workaround |
+| Gate | Pass criteria |
 | --- | --- |
-| Panel Expand all broken | Command Palette → Diagnose |
-| Settings path mismatch | Trust Diagnose + terminal until v1.0.6 |
-| Record/Run greyed | Start dev server / VPN |
+| **1. Diagnose** | Clean preflight; **`yarn a11y --list`** OK in Output; adopt-existing repair lines if config was wrong |
+| **2. Spec discovery** | Flow Runner lists specs at the correct path; **`auth.setup.spec.ts`** is setup-only (not offered as a flow recording); Settings and Flow Runner agree on config path and spec count |
+| **3. Run flow tests** | **Run this flow test** on one spec — repo or env failures are OK to report; extension must reach Playwright spawn (not “install Playwright” when workspace already has it) |
+| **4. Record flow** | **Record flow** is available when the dev server URL is reachable (greyed = start dev server / VPN, not an extension bug) |
+
+**Workspace scan (static lint):** **Activity Bar → Workspace scan** — **Scan all open packages** and **Scan active file** (in-tree rows and title-bar icons). Results appear in **Problems**.
+
+**Safety:** Do not use **Remove A11y Studio setup** unless intentionally resetting. Cancel any destructive prompt you did not mean to open.
 
 ---
 
-## Extension vs repo
+## Report back (redact secrets)
 
-| Symptom | Owner |
+Paste to the maintainer via Teams/Slack:
+
+1. Extension version from **Help → About** (expect **1.0.6**)
+2. Output of **`yarn a11y --list`**
+3. **`flowRunner`** block from **`a11y-studio.json`** (redact URLs if needed)
+4. Full **Diagnose** output (**Output → A11y Studio Flow Runner**)
+5. **Run this flow test** on one spec — pass/fail and first error line
+6. Verdict: **Section A** PASS/FAIL · **Section B** ___/4 · **Overall** PASS / PARTIAL / BLOCKED
+
+Optional screenshots: Flow Runner panel (spec list + Playwright status), one failed run if any.
+
+---
+
+## Who fixes what
+
+| Issue | Owner |
 | --- | --- |
-| Panel expand, Settings path, PURGE UX | Extension (v1.0.6 fix queued) |
-| Duplicate titles, ESM auth.setup | Repo (**done**) |
-| Record/Run greyed | Environment |
+| Duplicate test titles, ESM setup spec, wrong `--project`, wrong `storageState` | Customer repo |
+| Diagnose, panel tree, spec discovery, Playwright resolution inside the extension | A11y Studio vendor |
+| Dev server down, VPN, greyed Record/Run | Environment / infra |
 
 ---
 
-*Temporary public copy for adoption laptop · Remove from media repo when retest completes*
+* [a11ystudio.io](https://a11ystudio.io) · Marketplace `a11ystudio.a11y-studio`*
