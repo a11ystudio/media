@@ -310,6 +310,19 @@ curl -o enterprise-client-testing-report-template.md \
 
 Fill → save as `enterprise-client-testing-report-YYYY-MM-DD.md` → send to coordinator.
 
+### Two machines (banking laptop vs maintainer)
+
+Many adoption testers use a **client corporate laptop** (client GitHub ID, email/Gist blocked). The A11y Studio coordinator often **cannot** sign into **private** `a11y-studio` from that machine.
+
+| Machine | Who | Do this |
+| --- | --- | --- |
+| **Client / adoption laptop** | Tester (+ you on call) | Run checklist, copy **text** (terminal, Diagnose), paste to **Teams / Slack / Cursor** |
+| **Your maintainer machine** | Coordinator (your GitHub ID) | Receive text → paste into **private** `a11y-studio` smoke report → commit |
+
+You do **not** need GitHub on the banking laptop. Fetch the **public** checklist from media via browser or `curl` if allowed — no login required:
+
+`https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-client-testing.md`
+
 ### Where evidence lives (public vs private)
 
 | Repo | Visibility | Who uses it |
@@ -325,11 +338,11 @@ Fill → save as `enterprise-client-testing-report-YYYY-MM-DD.md` → send to co
 | **Adoption laptop tester** | **No** access to private `a11y-studio`. Send text via Teams / Slack / Cursor / internal ticket. |
 | **A11y Studio coordinator** | **Yes** — edit smoke report in **private** `a11y-studio` → paste client evidence → commit (redacted). |
 
-**Coordinator workflow (email/Teams blocked):**
+**Coordinator workflow (banking laptop — no personal GitHub):**
 
-1. Client pastes Evidence text in **Teams, Slack, or Cursor chat** (private).
-2. Coordinator opens **private** `a11y-studio` smoke report on GitHub → **Edit** → paste → redact → commit.
-3. Coordinator replies with verdict + next step.
+1. On **client laptop**: run gates, copy Evidence text → paste in **Teams / Slack / Cursor** (or read aloud on a call).
+2. On **your machine** (your GitHub login): open **private** `a11y-studio` smoke report → Edit → paste → redact → commit.
+3. Reply to client with verdict (same chat channel).
 
 **Do not** put customer-internal evidence in the **public** `a11ystudio/media` files.
 
