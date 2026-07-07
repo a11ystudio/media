@@ -6,7 +6,7 @@
 
 **Copilot:** Paste the GitHub view link above into Copilot Chat — it can read the full page (use the **Copilot paste — NOW** section when Section A is already done).
 
-**Updated:** 2026-07-07 · Extension **v1.0.5** Marketplace · **Verdict: PARTIAL** (Section A PASS)
+**Updated:** 2026-07-07 · Extension **v1.0.6** Marketplace LIVE · **Verdict: PARTIAL** (Section A PASS)
 
 ---
 
@@ -22,7 +22,7 @@
 ## Pass this to vendor (copy or link this page)
 
 ```
-Adoption retest PARTIAL — A11y Studio v1.0.5.
+Adoption retest PARTIAL — A11y Studio v1.0.6 Marketplace (update from Extensions if still on 1.0.5).
 
 Repo Section A is now PASS on our side:
 - yarn -s a11y --list succeeds
