@@ -89,19 +89,22 @@ For each open blocker, one row:
 
 ---
 
-## Send back (banking-friendly — no GitHub Gist)
+## Send back (banking-friendly — no Gist, no email required)
 
-Many enterprises block gist.github.com. Use one of these:
+Many enterprises block gist.github.com and outbound email. Use one of these:
 
 | Option | Steps |
 | --- | --- |
-| **Email** | Save this file as `enterprise-client-testing-report-YYYY-MM-DD.md` → attach to email → subject = one-line verdict below. |
-| **Teams / Slack** | Upload the `.md` file to a **private** team channel + one-line verdict. |
-| **Internal ticket** | Paste Evidence sections into ticket description; attach screenshots. |
-| **Confluence / SharePoint** | Paste into an internal page; send coordinator the internal link. |
-| **Internal Git repo** | Commit to your monorepo `docs/adoption/` if policy allows; share internal link only. |
+| **Teams / Slack / internal chat** | Paste Evidence sections + one-line verdict into a **private** message to the coordinator. **Best when email is blocked.** |
+| **Cursor / live session** | Paste terminal + Diagnose output in chat during a working session; coordinator copies to GitHub. |
+| **Email** | Attach `.md` or paste Evidence in body (if your org allows). |
+| **Internal ticket** | Paste Evidence into ticket description; send coordinator the ticket ID. |
+| **Confluence / SharePoint** | Internal page link only. |
+| **Internal Git repo** | Commit to `docs/adoption/` if policy allows. |
 
-Coordinator will paste redacted evidence into the A11y Studio maintainer smoke report — you do not need access to the public `a11ystudio` GitHub org.
+**Screenshots** — optional extras for UI bugs; always include **text** for Diagnose and `yarn a11y --list`.
+
+Coordinator pastes redacted evidence into the A11y Studio smoke report on GitHub — you do not need access to the public `a11ystudio` org.
 
 ---
 
