@@ -234,19 +234,22 @@ When you finish a session, the coordinator needs a **short status** plus a **fil
 
 ### How to send (pick what your team uses)
 
-**Banking / locked-down environments:** GitHub Gist is often disabled. Use **email**, **internal ticket**, or **your org’s repo** — not public GitHub paste tools.
+**Banking / locked-down environments:** GitHub Gist and **email** are often disabled. Use **Teams/Slack**, **internal chat**, or a **live session** — text paste beats screenshots.
 
 | Channel | What to do |
 | --- | --- |
-| **Email** (recommended) | Subject = one-line verdict. Attach `enterprise-client-testing-report-YYYY-MM-DD.md` or paste Evidence section in body. |
-| **Teams / Slack** | Post one-line verdict + upload the `.md` file (or paste Evidence into a private channel thread). |
-| **Internal ticket** | Jira / ServiceNow / etc. — paste Evidence blocks into description; attach screenshots. Put ticket ID in report header. |
-| **Confluence / SharePoint** | Create a page under your team space; paste report; send coordinator the **internal** link only. |
-| **Your monorepo** | Commit under `docs/adoption/` (internal GitHub/GitLab) — send coordinator the **internal** file link if policy allows. |
-| **Coordinator** | Pastes your report into the maintainer smoke report on GitHub (you do not need GitHub write access). |
+| **Teams / Slack / internal chat** | Paste Evidence blocks + one-line verdict into a **private** DM (preferred when email is blocked). |
+| **Cursor / live session** | Paste terminal + Diagnose text in chat; coordinator copies into GitHub smoke report. |
+| **Email** | Subject = one-line verdict. Attach `.md` or paste Evidence in body (if allowed). |
+| **Internal ticket** | Jira / ServiceNow — paste Evidence; put ticket ID in report header. |
+| **Confluence / SharePoint** | Internal page link only. |
+| **Your monorepo** | Commit under `docs/adoption/` — internal link only if policy allows. |
+| **Coordinator GitHub** | You do **not** need write access — coordinator pastes into the [smoke report](https://github.com/a11ystudio/a11y-studio/edit/main/docs/ai/smoke-reports/2026-07-07-corporate-laptop-v1.0.5-retest.md). |
+
+There is **no** public A11y Studio web paste form yet. Do **not** put customer data in public GitHub Issues.
 
 1. **Do not** use public GitHub Issues on `a11y-studio` with customer names or internal URLs.
-2. **Do not** rely on GitHub Gist if your org blocks it — email or internal ticket instead.
+2. **Do not** rely on GitHub Gist if your org blocks it.
 
 ### Redaction (mandatory)
 
