@@ -6,7 +6,9 @@
 
 `https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-client-testing.md`
 
-**Related (maintainer monorepo):** [enterprise-adoption architecture](https://github.com/a11ystudio/a11y-studio/blob/main/docs/specs/enterprise-adoption-architecture.md) · Marketplace extension: `a11ystudio.a11y-studio`
+**Public docs:** [a11ystudio.io — Enterprise adoption](https://a11ystudio.io/docs/enterprise-adoption/) · Marketplace: `a11ystudio.a11y-studio`
+
+**Repo visibility:** This checklist lives in the **public** [`a11ystudio/media`](https://github.com/a11ystudio/media) repo. The product monorepo [`a11y-studio`](https://github.com/a11ystudio/a11y-studio) is **private** — adoption testers do not need access; the coordinator stores redacted evidence there.
 
 ---
 
@@ -308,24 +310,28 @@ curl -o enterprise-client-testing-report-template.md \
 
 Fill → save as `enterprise-client-testing-report-YYYY-MM-DD.md` → send to coordinator.
 
-### Paste directly on GitHub (who can do what)
+### Where evidence lives (public vs private)
 
-| Who | Can edit on GitHub? | How |
+| Repo | Visibility | Who uses it |
 | --- | --- | --- |
-| **A11y Studio coordinator** | **Yes** | Open the maintainer smoke report → **✏️ Edit** → paste client evidence into `[paste]` blocks → **Commit**. [v1.0.5 retest report](https://github.com/a11ystudio/a11y-studio/edit/main/docs/ai/smoke-reports/2026-07-07-corporate-laptop-v1.0.5-retest.md) |
-| **Adoption laptop tester** | **Not on `a11ystudio/media`** | Maintainer-owned; no write access needed. |
-| **Adoption laptop tester** | **Internal repo only** | Commit report in **your** bank monorepo → share **internal** link with coordinator (if policy allows). |
-| **Adoption laptop tester** | **No Gist** | Many banks disable gist.github.com — use **email + attachment** or **internal ticket** instead. |
+| **[a11ystudio/media](https://github.com/a11ystudio/media)** | **Public** | Generic checklists only — **no customer paste** |
+| **a11y-studio** | **Private** | Maintainer only — smoke reports with redacted client evidence |
+| **Your bank monorepo** | Internal | Your Playwright fixes |
 
-**Coordinator workflow (typical for banking):**
+### Paste directly on GitHub (maintainer only)
 
-1. Client emails filled report (`.md` attachment) or posts to internal ticket and notifies you.
-2. You open the smoke report on GitHub → **Edit this file**.
-3. Paste into Diagnose / `flowRunner` / gate tables → **redact** customer names and URLs.
-4. Commit: `docs: enterprise laptop retest evidence YYYY-MM-DD`
-5. Reply to client with verdict + next step.
+| Who | Access |
+| --- | --- |
+| **Adoption laptop tester** | **No** access to private `a11y-studio`. Send text via Teams / Slack / Cursor / internal ticket. |
+| **A11y Studio coordinator** | **Yes** — edit smoke report in **private** `a11y-studio` → paste client evidence → commit (redacted). |
 
-**Do not** put customer-internal evidence in the **public** `a11ystudio/media` files. Evidence stays in email/ticket (client side) or the **a11y-studio** smoke report (coordinator side, redacted).
+**Coordinator workflow (email/Teams blocked):**
+
+1. Client pastes Evidence text in **Teams, Slack, or Cursor chat** (private).
+2. Coordinator opens **private** `a11y-studio` smoke report on GitHub → **Edit** → paste → redact → commit.
+3. Coordinator replies with verdict + next step.
+
+**Do not** put customer-internal evidence in the **public** `a11ystudio/media` files.
 
 ---
 

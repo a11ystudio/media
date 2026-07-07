@@ -104,7 +104,7 @@ Many enterprises block gist.github.com and outbound email. Use one of these:
 
 **Screenshots** — optional extras for UI bugs; always include **text** for Diagnose and `yarn a11y --list`.
 
-Coordinator pastes redacted evidence into the A11y Studio smoke report on GitHub — you do not need access to the public `a11ystudio` org.
+Coordinator pastes redacted evidence into the **private** `a11y-studio` smoke report — you do not need access to that repo. This **public** media repo is for generic checklists only.
 
 ---
 
