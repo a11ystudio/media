@@ -234,10 +234,19 @@ When you finish a session, the coordinator needs a **short status** plus a **fil
 
 ### How to send (pick what your team uses)
 
-1. **Email or chat** — paste the **one-line summary** from the report template subject block.
-2. **Attach** the saved report markdown file (or paste the Evidence section into the message body).
-3. **Internal ticket** — if your org tracks adoption work, link the ticket ID in the report header.
-4. **Do not** open a public GitHub issue on `a11y-studio` with customer repo names or internal URLs — coordinator routes extension bugs privately.
+**Banking / locked-down environments:** GitHub Gist is often disabled. Use **email**, **internal ticket**, or **your org’s repo** — not public GitHub paste tools.
+
+| Channel | What to do |
+| --- | --- |
+| **Email** (recommended) | Subject = one-line verdict. Attach `enterprise-client-testing-report-YYYY-MM-DD.md` or paste Evidence section in body. |
+| **Teams / Slack** | Post one-line verdict + upload the `.md` file (or paste Evidence into a private channel thread). |
+| **Internal ticket** | Jira / ServiceNow / etc. — paste Evidence blocks into description; attach screenshots. Put ticket ID in report header. |
+| **Confluence / SharePoint** | Create a page under your team space; paste report; send coordinator the **internal** link only. |
+| **Your monorepo** | Commit under `docs/adoption/` (internal GitHub/GitLab) — send coordinator the **internal** file link if policy allows. |
+| **Coordinator** | Pastes your report into the maintainer smoke report on GitHub (you do not need GitHub write access). |
+
+1. **Do not** use public GitHub Issues on `a11y-studio` with customer names or internal URLs.
+2. **Do not** rely on GitHub Gist if your org blocks it — email or internal ticket instead.
 
 ### Redaction (mandatory)
 
@@ -300,20 +309,20 @@ Fill → save as `enterprise-client-testing-report-YYYY-MM-DD.md` → send to co
 
 | Who | Can edit on GitHub? | How |
 | --- | --- | --- |
-| **A11y Studio coordinator** | **Yes** | Open the maintainer smoke report → click **✏️ Edit** (pencil) → paste client evidence into `[paste]` blocks → **Commit changes**. Example: [v1.0.5 retest report](https://github.com/a11ystudio/a11y-studio/edit/main/docs/ai/smoke-reports/2026-07-07-corporate-laptop-v1.0.5-retest.md) |
-| **Adoption laptop tester** | **Not on `a11ystudio/media`** | That repo is maintainer-owned; you do not get write access by default. |
-| **Adoption laptop tester** | **Yes — Secret Gist** | [gist.github.com](https://gist.github.com) → **New gist** → paste filled report → set **Secret gist** → send coordinator the gist URL only. |
-| **Adoption laptop tester** | **Yes — your monorepo** | Commit `docs/adoption-retest-YYYY-MM-DD.md` in **your** repo → send coordinator the file link (preferred if your org already uses GitHub). |
+| **A11y Studio coordinator** | **Yes** | Open the maintainer smoke report → **✏️ Edit** → paste client evidence into `[paste]` blocks → **Commit**. [v1.0.5 retest report](https://github.com/a11ystudio/a11y-studio/edit/main/docs/ai/smoke-reports/2026-07-07-corporate-laptop-v1.0.5-retest.md) |
+| **Adoption laptop tester** | **Not on `a11ystudio/media`** | Maintainer-owned; no write access needed. |
+| **Adoption laptop tester** | **Internal repo only** | Commit report in **your** bank monorepo → share **internal** link with coordinator (if policy allows). |
+| **Adoption laptop tester** | **No Gist** | Many banks disable gist.github.com — use **email + attachment** or **internal ticket** instead. |
 
-**Coordinator workflow (paste client email into GitHub):**
+**Coordinator workflow (typical for banking):**
 
-1. Client sends filled report (email, chat, or secret gist link).
-2. You open the smoke report on GitHub (link above) → **Edit this file**.
-3. Paste into Diagnose / `flowRunner` / gate tables → redact customer names and URLs.
-4. Commit message example: `docs: enterprise laptop retest evidence 2026-07-07`
-5. Reply to client with verdict + next step (ship VSIX, fix repo, re-run gate N).
+1. Client emails filled report (`.md` attachment) or posts to internal ticket and notifies you.
+2. You open the smoke report on GitHub → **Edit this file**.
+3. Paste into Diagnose / `flowRunner` / gate tables → **redact** customer names and URLs.
+4. Commit: `docs: enterprise laptop retest evidence YYYY-MM-DD`
+5. Reply to client with verdict + next step.
 
-**Do not** paste customer-internal URLs or secrets into the **public** `a11ystudio/media` checklist files — those stay generic. Evidence lives in the **a11y-studio** smoke report (redacted) or stays in email/gist.
+**Do not** put customer-internal evidence in the **public** `a11ystudio/media` files. Evidence stays in email/ticket (client side) or the **a11y-studio** smoke report (coordinator side, redacted).
 
 ---
 

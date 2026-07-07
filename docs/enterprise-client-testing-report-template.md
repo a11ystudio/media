@@ -89,14 +89,19 @@ For each open blocker, one row:
 
 ---
 
-## Paste on GitHub (alternative to email)
+## Send back (banking-friendly — no GitHub Gist)
 
-1. **[gist.github.com](https://gist.github.com)** → **New secret gist**
-2. Filename: `enterprise-client-testing-report-YYYY-MM-DD.md`
-3. Paste this filled template → **Create secret gist**
-4. Send the coordinator **only the gist URL** (use Secret, not Public)
+Many enterprises block gist.github.com. Use one of these:
 
-Or commit this file in **your** monorepo under `docs/` and send the GitHub file link.
+| Option | Steps |
+| --- | --- |
+| **Email** | Save this file as `enterprise-client-testing-report-YYYY-MM-DD.md` → attach to email → subject = one-line verdict below. |
+| **Teams / Slack** | Upload the `.md` file to a **private** team channel + one-line verdict. |
+| **Internal ticket** | Paste Evidence sections into ticket description; attach screenshots. |
+| **Confluence / SharePoint** | Paste into an internal page; send coordinator the internal link. |
+| **Internal Git repo** | Commit to your monorepo `docs/adoption/` if policy allows; share internal link only. |
+
+Coordinator will paste redacted evidence into the A11y Studio maintainer smoke report — you do not need access to the public `a11ystudio` GitHub org.
 
 ---
 
