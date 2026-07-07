@@ -4,6 +4,8 @@
 
 **GitHub view:** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md
 
+**Copilot:** Paste the GitHub view link above into Copilot Chat — it can read the full page (use the **Copilot paste — NOW** section when Section A is already done).
+
 **Updated:** 2026-07-07 · Extension **v1.0.5** Marketplace
 
 ---
