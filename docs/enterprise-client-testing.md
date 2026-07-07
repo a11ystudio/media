@@ -219,4 +219,83 @@ yarn a11y --list
 
 ---
 
+## Section C — Report back to A11y Studio
+
+When you finish a session, the coordinator needs a **short status** plus a **filled report**. Do not send raw customer repo code — only the evidence blocks below (redacted).
+
+### What to send
+
+| Item | Required? | Notes |
+| --- | --- | --- |
+| **One-line verdict** | Yes | PASS / PARTIAL / BLOCKED + extension version |
+| **Filled report file** | Yes | Use [report template](./enterprise-client-testing-report-template.md) — save as `enterprise-client-testing-report-YYYY-MM-DD.md` |
+| **This checklist** (optional) | If helpful | Only if you filled Section B inline here |
+| **Screenshots** | Optional | Flow Runner panel after Diagnose; UI bugs only |
+
+### How to send (pick what your team uses)
+
+1. **Email or chat** — paste the **one-line summary** from the report template subject block.
+2. **Attach** the saved report markdown file (or paste the Evidence section into the message body).
+3. **Internal ticket** — if your org tracks adoption work, link the ticket ID in the report header.
+4. **Do not** open a public GitHub issue on `a11y-studio` with customer repo names or internal URLs — coordinator routes extension bugs privately.
+
+### Redaction (mandatory)
+
+Before sending, remove or replace:
+
+- Production / staging URLs and hostnames (use `https://local.dev.example.com/` class placeholders if needed)
+- Auth cookies, tokens, client secrets, `.auth/` file contents
+- Employee or customer names in paths or screenshots
+
+### Short status messages (copy-paste)
+
+**Repo phase done, waiting for v1.0.6:**
+
+```
+Adoption repo phase DONE — yarn a11y --list passes. A11y Studio still v1.0.5.
+Ready for v1.0.6 VSIX / Marketplace for Part A gate retest.
+Report: enterprise-client-testing-report-YYYY-MM-DD.md attached.
+```
+
+**Blocked on repo:**
+
+```
+Adoption BLOCKED (repo) — yarn a11y --list fails: [error one-liner].
+Extension v____. Working on spec/config fix in our monorepo.
+Report attached.
+```
+
+**Part A pass:**
+
+```
+Adoption Part A PASS — A11y Studio v____. Gates 4/4 (or N ENV BLOCKED).
+yarn a11y --list OK. Report attached.
+```
+
+**Part A blocked (extension):**
+
+```
+Adoption Part A BLOCKED (extension) — A11y Studio v____. Gates __/4.
+Top issue: [e.g. panel expand / Diagnose / dual runtime].
+Report attached. Repo list: OK.
+```
+
+### What the coordinator does with your report
+
+- Updates the maintainer smoke report in the A11y Studio monorepo (neutral copy — no customer branding)
+- Routes **extension** failures to a VS Code hotfix / publish
+- Confirms **repo** fixes stay in your monorepo — no action needed from A11y Studio on your Playwright files
+- Replies with: ship version, VSIX link, or “re-run gate N after fix”
+
+### Report template (download on laptop)
+
+```bash
+curl -o enterprise-client-testing-report-template.md \
+  https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-client-testing-report-template.md
+```
+
+Fill → save as `enterprise-client-testing-report-YYYY-MM-DD.md` → send to coordinator.
+
+---
+
 *Last updated: 2026-07-07 — v1.0.5 Marketplace + v1.0.6 queued. Maintainer: update this file when Part A gate wording changes.*
