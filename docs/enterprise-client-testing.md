@@ -246,11 +246,11 @@ When you finish a session, the coordinator needs a **short status** plus a **fil
 | **Internal ticket** | Jira / ServiceNow — paste Evidence; put ticket ID in report header. |
 | **Confluence / SharePoint** | Internal page link only. |
 | **Your monorepo** | Commit under `docs/adoption/` — internal link only if policy allows. |
-| **Coordinator GitHub** | You do **not** need write access — coordinator pastes into the [smoke report](https://github.com/a11ystudio/a11y-studio/edit/main/docs/ai/smoke-reports/2026-07-07-corporate-laptop-v1.0.5-retest.md). |
+| **Coordinator (maintainer)** | Pastes your text into the **private** `a11y-studio` repo — you do not need access. |
 
-There is **no** public A11y Studio web paste form yet. Do **not** put customer data in public GitHub Issues.
+**Public vs private:** This checklist is in **public** [`a11ystudio/media`](https://github.com/a11ystudio/media) only. Do **not** paste customer evidence here. The coordinator stores redacted evidence in **private** `a11y-studio`.
 
-1. **Do not** use public GitHub Issues on `a11y-studio` with customer names or internal URLs.
+1. **Do not** post customer data in public GitHub (including Issues on `a11ystudio/media`).
 2. **Do not** rely on GitHub Gist if your org blocks it.
 
 ### Redaction (mandatory)
