@@ -2,6 +2,8 @@
 
 **Extension:** Marketplace **v1.0.7** LIVE · adopt-existing **`storageState`** repair, **Playwright hoisting**. **Expand all** deferred to **v1.0.8** (known issue — **Collapse all** works; use **Command Palette** when collapsed). **Scan UX** simplify (**Scan all workspace** + per-package rows) targets **v1.0.8** — not required for adoption gates on **1.0.7**.
 
+**Build on this laptop:** **Marketplace latest only** — install or auto-update from **Extensions → A11y Studio**. **Not** a maintainer VSIX, **not** Extension Development Host (F5), **not** a pre-release build. If version ≠ latest Marketplace, update and **Reload Window** before Section B.
+
 Copilot works on the **customer monorepo only** — not the `a11y-studio` vendor repo.
 
 **Layout:** Flow package **`a11y-playwright/`** (or the path in `flowRunner.testDir` inside `a11y-studio.json`). The **workspace** owns **`playwright.config.ts`** and **`yarn a11y`** at the repo root.
@@ -12,7 +14,7 @@ Copilot works on the **customer monorepo only** — not the `a11y-studio` vendor
 
 | Do | Do not |
 | --- | --- |
-| Run **Section A** then **Section B** below on **Marketplace 1.0.7** | Implement vendor features in the customer repo |
+| Run **Section A** then **Section B** below on **Marketplace latest** (currently **1.0.7**) | Install from VSIX or assume a dev/F5 build counts as adoption proof |
 | Fix **repo-owned** Playwright/spec/config issues (Section A) | Create **`turbo-flow`**, duplicate Playwright packages, or forced **`tests/a11y`** relocations |
 | Report **PASS/FAIL** per gate with screenshots + Diagnose log | Treat any long “implementation request” markdown as a **build order** |
 | Map stakeholder questions to **Vendor disposition** below | Multi-agent or “implement the whole doc” passes |
@@ -74,7 +76,7 @@ Use this when stakeholders ask “is X supported?”
 
 ## Before you start
 
-1. **Extensions → A11y Studio** — confirm version (`a11ystudio.a11y-studio`). **1.0.7** = current Marketplace release (July 2026).
+1. **Extensions → A11y Studio** — must be **Marketplace latest** (`a11ystudio.a11y-studio`). Confirm **Help → About** matches the current release (**1.0.7** as of July 2026). **Do not** use **Install from VSIX…** unless the maintainer explicitly sent a retest VSIX.
 2. **Reload Window** after install or update.
 3. Disable **`ms-playwright.playwright`** if enabled (conflicts with Flow Runner discovery) → **Reload Window** again.
 4. Open **Activity Bar → A11y Studio → Flow Runner** and run **Diagnose Node & Playwright** once. Save **Output → A11y Studio Flow Runner**.
@@ -94,7 +96,7 @@ Repo-owned **`yarn a11y*`** is the system of record until Section B passes.
 
 - Create **`turbo-flow`**, extra **`tests/a11y`** folders, or duplicate Playwright packages unless the team explicitly owns that layout.
 - Edit **`.vscode/settings.json`** `nodePath` / `playwrightPath` unless **Diagnose** tells you to.
-- Patch Marketplace with a VSIX unless the maintainer sent one for retest.
+- Patch Marketplace with a VSIX unless the maintainer sent one for retest (**this laptop run = Marketplace latest only**).
 
 ---
 
