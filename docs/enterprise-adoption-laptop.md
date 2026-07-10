@@ -10,6 +10,97 @@ Copilot works on the **customer monorepo only** — not the `a11y-studio` vendor
 
 ---
 
+## Copilot — execute this checklist (in order)
+
+**Prompt to paste in Copilot on the customer monorepo:**
+
+```text
+Read and follow:
+https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md
+
+Execute every step in "Copilot — execute this checklist" below. Report PASS/FAIL for each step using the "Report back" template. Do NOT implement A11Y_STUDIO_EXTENSION_WORLD_CLASS_IMPLEMENTATION_REQUEST_*.md wholesale.
+```
+
+### Step 0 — Confirm build
+
+- [ ] **Help → About** shows **`a11ystudio.a11y-studio` version `1.0.7`** (Marketplace latest — not VSIX, not F5 dev host)
+- [ ] **Reload Window** after confirming version
+- [ ] **`ms-playwright.playwright`** extension disabled if present → **Reload Window** again
+
+### Step 1 — Section A (repo)
+
+Run in terminal at **workspace root** (repo with `playwright.config.ts` + `yarn a11y`):
+
+- [ ] **`yarn a11y --list`** — lists ≥1 test. If FAIL: fix duplicate `test()` titles, ESM in `auth.setup.spec.ts`, wrong `--project` names; re-run until PASS
+- [ ] **`auth.setup.spec.ts`** uses **`import`** (not `require`) when root `"type": "module"`
+- [ ] **`--project`** names match `playwright.config.ts` projects
+- [ ] **`storageState`** in specs uses **`a11y-playwright/.auth/<profile>.json`** (or correct path relative to config dir), not bare `.auth/` at repo root
+
+**Section A verdict:** PASS / FAIL — _reason if FAIL_
+
+### Step 2 — Section B gate 1 (Diagnose)
+
+- [ ] **Activity Bar → A11y Studio → Flow Runner → Diagnose Node & Playwright**
+- [ ] Save full log from **Output → A11y Studio Flow Runner**
+- [ ] Confirm: `yarn a11y --list` OK in output; adopt-existing repair lines; **`storageState` rewrite** lines on **1.0.7+** if auth files exist
+
+**Gate 1:** PASS / FAIL — _first failing line if FAIL_
+
+### Step 3 — Section B gate 2 (Spec discovery)
+
+- [ ] Flow Runner lists specs at correct path (matches `flowRunner.testDir` / package layout)
+- [ ] **`auth.setup.spec.ts`** is setup-only — not offered as **Record flow**
+- [ ] **Help & settings** and Flow Runner agree on config path and spec count
+
+**Gate 2:** PASS / FAIL — _mismatch detail if FAIL_
+
+### Step 4 — Section B gate 3 (Run all flow tests) — **critical for v1.0.7**
+
+- [ ] **Run all flow tests (N specs)** from Flow Runner panel or Command Palette
+- [ ] Must reach **Playwright spawn** — not “install Playwright” when `yarn a11y --list` works
+- [ ] Must **not** ENOENT on `.auth/` (v1.0.7 repairs paths before spawn)
+
+**Gate 3:** PASS / FAIL — _first error line if FAIL_
+
+### Step 5 — Section B gate 4 (Record flow)
+
+- [ ] Dev server / VPN up for configured URL (or note env blocker)
+- [ ] **Record flow** row enabled when URL reachable (greyed = environment, not extension bug)
+
+**Gate 4:** PASS / FAIL / SKIPPED (env) — _note_
+
+### Step 6 — Panel Expand all (known issue — do not fail adoption)
+
+- [ ] Try **Expand all** and section chevrons — note PASS/FAIL (**known broken in 1.0.7**)
+- [ ] Confirm **Collapse all** works
+
+### Step 7 — Workspace scan spot check (optional on 1.0.7)
+
+- [ ] **Scan all open packages** (or **Scan all workspace** on newer builds) runs without error
+- [ ] At least one **Scan package:** row runs for a monorepo app
+
+### Step 8 — World-class doc (if present)
+
+If **`A11Y_STUDIO_EXTENSION_WORLD_CLASS_IMPLEMENTATION_REQUEST_*.md`** exists in repo:
+
+- [ ] **Do not implement** — classify only using **Vendor disposition** table above
+- [ ] Answer stakeholder questions: Confluence + CI **supported now** (CLI-first); Run Mode Selector **planned**
+- [ ] Map client **§8 gates** to Section A/B results in this checklist
+
+### Step 9 — Report back to maintainer
+
+Paste the **Report back** block below (redact secrets). Include:
+
+- Section A PASS/FAIL
+- Section B **_/4**
+- Gate 3 first error line (if any)
+- Expand all noted as known issue
+- Overall: PASS / PARTIAL / BLOCKED
+
+**Do not** open PRs on the vendor repo. **Do not** multi-agent the world-class doc.
+
+---
+
 ## Copilot role (read first)
 
 | Do | Do not |
