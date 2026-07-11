@@ -21,6 +21,21 @@ https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption
 Execute every step in "Copilot — execute this checklist" below. Report PASS/FAIL for each step using the "Report back" template. Do NOT implement A11Y_STUDIO_EXTENSION_WORLD_CLASS_IMPLEMENTATION_REQUEST_*.md wholesale.
 ```
 
+### MANDATORY — Section B is UI-driven (CLI does not count)
+
+**Gates 1–4 (Steps 2–5) MUST be executed inside the VS Code extension UI** — Activity Bar → **A11y Studio → Flow Runner** — and read from **Output → A11y Studio Flow Runner**. Running Playwright directly from the terminal is a **repo check (Section A)**, not an extension gate.
+
+- **Do not** mark any Section B gate PASS/FAIL from a terminal `playwright test` command. Terminal cwd (e.g. a `turbo-flow` folder) changes relative `storageState` resolution and produces **false ENOENT** that the extension panel does **not** hit.
+- If you cannot click the panel yourself, **drive it via VS Code commands** (Command Palette / the `a11y-studio.*` command ids) and still read the **Output channel**. If neither is possible, **stop and hand Steps 2–5 to the human as exact click instructions** rather than substituting CLI results.
+- A Section B gate with no panel + Output evidence = **NOT RUN**, not PASS and not FAIL.
+
+### Corrections from the 2026-07-10 CLI run (do these first)
+
+The previous run was CLI-only and left two things open — fix before Section B:
+
+1. **`ms-playwright.playwright` is still installed/enabled** → **disable it** → **Reload Window**. (Required before Diagnose so Flow Runner owns discovery.)
+2. The terminal ENOENT (`a11y-playwright/.auth/user1.json`) came from running inside **`a11y-playwright/turbo-flow`**. The auth file **exists**; ignore that CLI error. **Re-test Gate 3 from the panel only.** Also confirm with the team whether the **`turbo-flow`** folder is intentional (vendor brief says do not add it unless the team owns that layout).
+
 ### Step 0 — Confirm build
 
 - [ ] **Help → About** shows **`a11ystudio.a11y-studio` version `1.0.7`** (Marketplace latest — not VSIX, not F5 dev host)
@@ -92,12 +107,14 @@ If **`A11Y_STUDIO_EXTENSION_WORLD_CLASS_IMPLEMENTATION_REQUEST_*.md`** exists in
 Paste the **Report back** block below (redact secrets). Include:
 
 - Section A PASS/FAIL
-- Section B **_/4**
-- Gate 3 first error line (if any)
+- Section B **_/4** — each gate marked **PASS / FAIL / NOT RUN (UI)**; only panel + Output evidence counts
+- **Diagnose Output** excerpt (must show it ran in the panel; note any `storageState` rewrite lines)
+- Gate 3 **panel** result + first error line (if any) — **not** a terminal `playwright test` result
 - Expand all noted as known issue
-- Overall: PASS / PARTIAL / BLOCKED
+- `ms-playwright.playwright` disabled? yes/no · `turbo-flow` folder intentional? yes/no/unknown
+- Overall: PASS / PARTIAL / BLOCKED / **INCONCLUSIVE (Section B not UI-verified)**
 
-**Do not** open PRs on the vendor repo. **Do not** multi-agent the world-class doc.
+**Do not** open PRs on the vendor repo. **Do not** multi-agent the world-class doc. **Do not** report Section B from CLI proxies.
 
 ---
 
