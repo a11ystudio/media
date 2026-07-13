@@ -1,6 +1,6 @@
 # A11y Studio — enterprise adopt-existing laptop brief
 
-**Extension:** Marketplace **v1.0.10** LIVE · adopt-existing **`storageState`**, **Playwright** panel false-neg fix, **Expand all**, simplified Workspace scan, **Run adoption Section B gates** (Copilot automation). Update from Marketplace and **Reload Window** before Section B (do not stay on **1.0.7–1.0.9** if **1.0.10** is available).
+**Extension:** Marketplace **v1.0.11** LIVE · **Choose run mode…** · panel **Run adoption Section B gates** · Playwright false-neg fix · Expand all · scan UX. Update from Marketplace and **Reload Window** before Section B (do not stay on **1.0.7–1.0.10** if **1.0.11** is available).
 
 **Build on this laptop:** **Marketplace latest only** — install or auto-update from **Extensions → A11y Studio**. **Not** a maintainer VSIX, **not** Extension Development Host (F5), **not** a pre-release build. If version ≠ latest Marketplace, update and **Reload Window** before Section B.
 
