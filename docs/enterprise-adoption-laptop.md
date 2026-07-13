@@ -1,6 +1,6 @@
 # A11y Studio — enterprise adopt-existing laptop brief
 
-**Extension:** Marketplace **v1.0.8** LIVE · adopt-existing **`storageState`** repair, **Playwright hoisting**, **Expand all** + section chevrons, simplified Workspace scan (**Scan all** + per-package rows). Update from Marketplace and **Reload Window** before Section B.
+**Extension:** Marketplace **v1.0.9** LIVE · adopt-existing **`storageState`**, **Playwright** panel false-neg fix, **Expand all**, simplified Workspace scan. Update from Marketplace and **Reload Window** before Section B (do not stay on **1.0.7** / **1.0.8** if **1.0.9** is available).
 
 **Build on this laptop:** **Marketplace latest only** — install or auto-update from **Extensions → A11y Studio**. **Not** a maintainer VSIX, **not** Extension Development Host (F5), **not** a pre-release build. If version ≠ latest Marketplace, update and **Reload Window** before Section B.
 
@@ -152,7 +152,7 @@ Pass 3 confirmed at workspace root:
 
 ### Step 4 — Section B gate 3 (Run all flow tests) — **P0 — critical for v1.0.7**
 
-**This gate decides v1.0.8 vs hotfix. Must be triggered from the panel — not the terminal.**
+**This gate decides next patch vs hotfix. Must be triggered from the panel — not the terminal.**
 
 - [ ] **Run all flow tests (N specs)** from Flow Runner panel or Command Palette **`A11y Studio: Run all flow tests`**
 - [ ] Must reach **Playwright spawn** — not “install Playwright” when `yarn a11y --list` works
