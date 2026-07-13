@@ -1,6 +1,6 @@
 # A11y Studio — enterprise adopt-existing laptop brief
 
-**Extension:** Marketplace **v1.0.9** LIVE · adopt-existing **`storageState`**, **Playwright** panel false-neg fix, **Expand all**, simplified Workspace scan. Update from Marketplace and **Reload Window** before Section B (do not stay on **1.0.7** / **1.0.8** if **1.0.9** is available).
+**Extension:** Marketplace **v1.0.10** LIVE · adopt-existing **`storageState`**, **Playwright** panel false-neg fix, **Expand all**, simplified Workspace scan, **Run adoption Section B gates** (Copilot automation). Update from Marketplace and **Reload Window** before Section B (do not stay on **1.0.7–1.0.9** if **1.0.10** is available).
 
 **Build on this laptop:** **Marketplace latest only** — install or auto-update from **Extensions → A11y Studio**. **Not** a maintainer VSIX, **not** Extension Development Host (F5), **not** a pre-release build. If version ≠ latest Marketplace, update and **Reload Window** before Section B.
 
@@ -28,9 +28,10 @@ Copilot works on the **customer monorepo only** — not the `a11y-studio` vendor
 
 | Priority | Action | Where | Evidence required |
 | --- | --- | --- | --- |
-| **P0** | **Diagnose Node & Playwright** | Activity Bar → **A11y Studio → Flow Runner** → click **Diagnose Node & Playwright** | Full text from **View → Output** → channel **A11y Studio Flow Runner** |
-| **P0** | **Run all flow tests** | Same panel → click **Run all flow tests (N specs)** (or Command Palette → **`A11y Studio: Run all flow tests`**) | Same Output channel — pass/fail + **first error line** |
-| **P1** | Spec discovery check | Flow Runner panel tree | Screenshot or text: spec count + paths match `flowRunner.testDir` |
+| **P0** | **Preferred (automated):** **Run adoption Section B gates** | Command Palette → **`A11y Studio: Run adoption Section B gates (Diagnose + specs + Run all)`** | Returns JSON `{ ok, gates }` · full text from **Output → A11y Studio Flow Runner** |
+| **P0** | **Diagnose Node & Playwright** (manual) | Activity Bar → **A11y Studio → Flow Runner** → click **Diagnose Node & Playwright** | Full text from **View → Output** → channel **A11y Studio Flow Runner** |
+| **P0** | **Run all flow tests** (manual) | Same panel → click **Run all flow tests (N specs)** (or Command Palette → **`A11y Studio: Run all flow tests`**) | Same Output channel — pass/fail + **first error line** |
+| **P1** | Spec discovery check | Flow Runner panel tree (or automated command Gate 2) | Screenshot or text: spec count + paths match `flowRunner.testDir` |
 | **P2** | Record flow | Only if dev server/VPN up | PASS / FAIL / SKIPPED (env) |
 
 **Do not write another “Report back” until P0 is done.**  
@@ -54,8 +55,8 @@ Copilot works on the **customer monorepo only** — not the `a11y-studio` vendor
 ### If you cannot click the UI yourself
 
 1. Open Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`)
-2. Run **`A11y Studio: Diagnose Node & Playwright setup`** → copy Output
-3. Run **`A11y Studio: Run all flow tests`** → copy Output
+2. **Preferred:** run **`A11y Studio: Run adoption Section B gates (Diagnose + specs + Run all)`** — copies Diagnose + spec discovery + Run all into **Output → A11y Studio Flow Runner** and returns `{ ok, gates }`
+3. Or run separately: **`A11y Studio: Diagnose Node & Playwright setup`** then **`A11y Studio: Run all flow tests`**
 4. If commands are unavailable, **stop** and give the human **exact click-by-click instructions** for Steps 2 and 4 below — **do not** substitute terminal results
 
 ### Exact click path (Gate 1 + Gate 3)
