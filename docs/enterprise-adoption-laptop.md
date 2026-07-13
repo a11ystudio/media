@@ -1,6 +1,6 @@
 # A11y Studio — enterprise adopt-existing laptop brief
 
-**Extension:** Marketplace **v1.0.7** LIVE · adopt-existing **`storageState`** repair, **Playwright hoisting**. **Expand all** deferred to **v1.0.8** (known issue — **Collapse all** works; use **Command Palette** when collapsed). **Scan UX** simplify (**Scan all workspace** + per-package rows) targets **v1.0.8** — not required for adoption gates on **1.0.7**.
+**Extension:** Marketplace **v1.0.8** LIVE · adopt-existing **`storageState`** repair, **Playwright hoisting**, **Expand all** + section chevrons, simplified Workspace scan (**Scan all** + per-package rows). Update from Marketplace and **Reload Window** before Section B.
 
 **Build on this laptop:** **Marketplace latest only** — install or auto-update from **Extensions → A11y Studio**. **Not** a maintainer VSIX, **not** Extension Development Host (F5), **not** a pre-release build. If version ≠ latest Marketplace, update and **Reload Window** before Section B.
 
