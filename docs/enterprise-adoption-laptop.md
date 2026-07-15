@@ -1,6 +1,6 @@
 # A11y Studio — enterprise adopt-existing laptop brief
 
-**Extension:** Marketplace **v1.0.11** LIVE · **Choose run mode…** · panel **Run adoption Section B gates** · Playwright false-neg fix · Expand all · scan UX. Update from Marketplace and **Reload Window** before Section B (do not stay on **1.0.7–1.0.10** if **1.0.11** is available).
+**Extension:** Marketplace **v1.0.11** LIVE · **Choose run mode…** · panel **Run adoption Section B gates** · Playwright false-neg fix · scan UX. **Expand all — known FAIL on client laptop (1.0.11)** — note only; **do not block Section B**. Use section chevrons / Command Palette. Update from Marketplace and **Reload Window** before Section B.
 
 **Build on this laptop:** **Marketplace latest only** — install or auto-update from **Extensions → A11y Studio**. **Not** a maintainer VSIX, **not** Extension Development Host (F5), **not** a pre-release build. If version ≠ **1.0.11**, update and **Reload Window** before Section B.
 
@@ -96,8 +96,9 @@ Rules:
    OR Choose run mode → Guided adoption (Section B).
 4. Copy evidence from Output → "A11y Studio Flow Runner" only.
 5. Do NOT run playwright test in the terminal for Section B.
-6. Submit Output + { ok, gates } at https://a11ystudio.io/report/
-7. Do NOT implement A11Y_STUDIO_EXTENSION_WORLD_CLASS_IMPLEMENTATION_REQUEST_*.md.
+6. Expand all is known FAIL on this laptop at 1.0.11 — note it; do NOT block Section B on it.
+7. Submit Output + { ok, gates } at https://a11ystudio.io/report/
+8. Do NOT implement A11Y_STUDIO_EXTENSION_WORLD_CLASS_IMPLEMENTATION_REQUEST_*.md.
 
 When done, each gate must be PASS / FAIL / SKIPPED (env) — not NOT RUN.
 ```
@@ -114,7 +115,7 @@ When done, each gate must be PASS / FAIL / SKIPPED (env) — not NOT RUN.
 
 1. **`ms-playwright.playwright`** — disable if installed → **Reload Window**.
 2. Terminal ENOENT on `a11y-playwright/.auth/user1.json` from **`turbo-flow` cwd** — auth file **exists** at `a11y-playwright/.auth/user1.json`. **Ignore that CLI error.** Gate 3 must use panel/commands only.
-3. **Expand all** — **fixed in 1.0.8+**; verify on **1.0.11** (note PASS/FAIL; not a known blocker).
+3. **Expand all** — **known FAIL on client laptop at 1.0.11** (maintainer confirmed 2026-07-15). **Collapse all** / section chevrons may still work. **Do not block Section B** — use Command Palette or visible rows.
 
 ### Step 0 — Confirm build
 
@@ -171,10 +172,11 @@ Pass 3 confirmed at workspace root:
 
 **Gate 4:** PASS / FAIL / SKIPPED (env)
 
-### Step 6 — Panel Expand all (verify on 1.0.11)
+### Step 6 — Panel Expand all (**known FAIL on 1.0.11 laptop — do not fail adoption**)
 
-- [ ] **Expand all** and section chevrons — note PASS/FAIL (**shipped 1.0.8+**)
-- [ ] **Collapse all** works
+- [ ] Try **Expand all** — expect **FAIL** on this laptop build (vendor hotfix track)
+- [ ] Note **Collapse all** / individual section chevrons PASS/FAIL
+- [ ] **Continue Section B** via **Run adoption Section B gates** or Command Palette — Expand all is **not** a Section B gate
 
 ### Step 7 — Workspace scan spot check (optional)
 
@@ -284,7 +286,7 @@ Repo-owned **`yarn a11y*`** is the system of record for layout validation.
 
 Use **Flow Runner panel**, **Run adoption Section B gates**, or **Choose run mode → Guided adoption**.
 
-**1.0.11 train:** Playwright false-neg fix (**1.0.9+**), Section B automation (**1.0.10+**), Run Mode (**1.0.11**), Expand all (**1.0.8+**).
+**1.0.11 train:** Playwright false-neg fix (**1.0.9+**), Section B automation (**1.0.10+**), Run Mode (**1.0.11**). **Expand all** — known FAIL on client laptop at **1.0.11** (hotfix after Section B).
 
 | Gate | Pass criteria |
 | --- | --- |
@@ -306,11 +308,11 @@ Submit at **https://a11ystudio.io/report/**:
 3. **`flowRunner`** block from **`a11y-studio.json`**
 4. Full **Diagnose** or **Section B automation** Output — Gate 1
 5. **Run all flow tests** Output — Gate 3 pass/fail + first error line
-6. **Expand all** — PASS/FAIL on **1.0.11**
+6. **Expand all** — note **known FAIL on 1.0.11 laptop** (do not fail adoption)
 7. World-class doc: catalog only — not implemented
 8. Verdict: Section A · Section B _/4 · Overall
 
-**Until Section B retest on 1.0.11:** Section A **PASS** · Section B **pending** · Overall **INCONCLUSIVE**
+**Until Section B retest on 1.0.11:** Section A **PASS** · Section B **pending** · Overall **INCONCLUSIVE** · Expand all **known issue**
 
 ---
 
