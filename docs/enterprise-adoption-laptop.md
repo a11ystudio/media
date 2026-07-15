@@ -10,6 +10,65 @@ Copilot works on the **customer monorepo only** — not the `a11y-studio` vendor
 
 ---
 
+## Copilot — your job this session (read first)
+
+**Vendor is in FEATURE FREEZE.** Your job is **one verification run** on the **customer monorepo** — not new features, not vendor-repo PRs, not the world-class implementation request doc.
+
+### What you CAN do (customer repo + VS Code)
+
+| # | Action | How |
+| --- | --- | --- |
+| 1 | **Read the brief** | Fetch https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md |
+| 2 | **Confirm extension version** | Tell the human: **Help → About** must show **`a11ystudio.a11y-studio` `1.0.11`** (or newer Marketplace). If not, **Extensions → update A11y Studio → Reload Window**. |
+| 3 | **Disable conflicting extension** | Tell the human: disable **`ms-playwright.playwright`** → **Reload Window**. |
+| 4 | **Run Section B (preferred)** | Tell the human to open **Command Palette** (`Cmd+Shift+P`) and run **`A11y Studio: Run adoption Section B gates (Diagnose + specs + Run all)`** — or click **Run adoption Section B gates** in **Flow Runner** panel. |
+| 5 | **Capture evidence** | Tell the human: **View → Output** → dropdown **A11y Studio Flow Runner** → **Select All → Copy**. If the command shows a result object, copy **`{ ok, gates }`** too. |
+| 6 | **Format the report** | Fill the **Report back** template at the bottom of this brief (Section A PASS note, Gates 1–4 verdicts, Expand all = known FAIL, overall verdict). |
+| 7 | **Submit** | Paste at **https://a11ystudio.io/report/** (or send the human the filled block to paste). |
+| 8 | **Repo hygiene only** | If Section A **regresses**, fix **customer** Playwright/spec/config issues listed in Section A — **not** vendor extension code. |
+
+### What you CANNOT do (stop if tempted)
+
+| Do not | Why |
+| --- | --- |
+| Run **`playwright test`** / **`yarn a11y test`** for **Section B** evidence | Invalid — wrong cwd causes false `.auth/` ENOENT; vendor rejects |
+| Implement **`A11Y_STUDIO_EXTENSION_WORLD_CLASS_IMPLEMENTATION_REQUEST_*.md`** | Requirements catalog — not adoption scope |
+| Open PRs on **`a11y-studio`** vendor repo | Wrong repo |
+| Block on **Expand all** | Known FAIL on 1.0.11 — **P1**; Collapse all works; not a Section B gate |
+| Re-run Section A unless regression | Already **PASS** on Pass 3 |
+| Ask for new extension features | **Feature freeze** until Section B closes |
+
+### Deliverable the vendor needs (one message)
+
+Copy this block when done (redact secrets):
+
+```text
+## A11y Studio laptop — Section B retest (Marketplace 1.0.11+)
+
+Extension version (Help → About): a11ystudio.a11y-studio-_____
+ms-playwright disabled + Reload: yes / no
+
+Section B gates (from panel/command Output only):
+- Gate 1 Diagnose: PASS / FAIL — first line if FAIL: ___
+- Gate 2 Spec discovery: PASS / FAIL — ___
+- Gate 3 Run all flow tests: PASS / FAIL — first error line if FAIL: ___
+- Gate 4 Record flow: PASS / FAIL / SKIPPED (env) — ___
+
+{ ok, gates } JSON (if returned by command):
+(paste here)
+
+Output → A11y Studio Flow Runner (full log):
+(paste here)
+
+Expand all: FAIL (known) — Collapse all: PASS / FAIL
+Section A: PASS (no regression) / FAIL
+Overall: PASS / PARTIAL / BLOCKED / INCONCLUSIVE
+```
+
+**After you submit:** vendor (Cursor) maps any FAIL → **P0**, fixes **only** those, ships **one** hotfix if needed. **No other work** until that returns.
+
+---
+
 ## ⛔ BLOCKING — Copilot: do this next (highest priority)
 
 **Status on this laptop:**
