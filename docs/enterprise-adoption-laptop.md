@@ -10,6 +10,60 @@ Copilot works on the **customer monorepo only** — not the `a11y-studio` vendor
 
 ---
 
+## Vendor response — Section B retest accepted (2026-07-17)
+
+**Read this before any next action.** Copilot evidence from **2026-07-15 / 2026-07-16** is accepted.
+
+### Gate verdict (vendor classification)
+
+| Gate | Result | Owner | Notes |
+| --- | --- | --- | --- |
+| **1 Diagnose** | **PASS** | — | Extension path works on **1.0.11** with `ms-playwright` disabled |
+| **2 Spec discovery** | **PASS** | — | Found `main-flow-staging.spec.ts` |
+| **3 Run all flow tests** | **FAIL** | **Environment** | Not an extension P0. Staging entry URL returned **HTTP 404** + S3 **`NoSuchKey` / `403.html`** XML — app never loaded; selector timeout on `mock-navigation-item` is a **downstream symptom** |
+| **4 Record flow** | **SKIPPED** | Environment | Correct until Gate 3 PASSes |
+
+**Overall:** Section A **PASS** · Section B **PARTIAL** (1+2 PASS, 3 env FAIL, 4 SKIPPED) · **No Marketplace hotfix** for this Gate 3 failure · Feature freeze **stays ON** until Gate 3 PASSes after **environment/route** fix.
+
+### What Copilot / laptop must do next (ordered)
+
+1. **Stop** selector / spec patching for Gate 3 until the staging entry URL loads **real app HTML** in the same browser channel the suite uses.
+2. With **app/environment owners**: confirm URL correctness, deployment health, VPN/domain routing, access policy.
+3. Interactively open the same staging URL used by `main-flow-staging` / active auth profile — must **not** be XML `NoSuchKey`.
+4. When the route is healthy → re-run **`A11y Studio: Run adoption Section B gates`** on **1.0.11+** → submit `{ ok, gates }` + **Output → A11y Studio Flow Runner**.
+5. **Only if** the route is healthy and Gate 3 still fails on a selector → then repo/spec sync (customer repo), not vendor extension.
+
+**GO for Record flow / new extension-first E2E specs:** still **NO-GO** until Gate 3 **PASS**.
+
+### Confluence config (laptop ask)
+
+Config shape (`publish.confluence.pages`, gates, artifacts, `executive-v2`) is fine. Fix these before treating publish as blocked on the vendor:
+
+| Item | Required |
+| --- | --- |
+| **`baseUrl`** | **Absolute** HTTPS origin, e.g. `https://YOUR.atlassian.net` — **not** a relative path like `...atlassian.net/wiki`. Optional override: env `CONFLUENCE_BASE_URL`. |
+| **Secrets** | Env only (never in `a11y-studio.json`): **`CONFLUENCE_API_KEY`** (required). Optional: **`CONFLUENCE_EMAIL`** for Basic auth. There is **no** `CONFLUENCE_API_TOKEN` name — use **`CONFLUENCE_API_KEY`**. |
+| **Docs** | https://a11ystudio.io/docs/confluence-publish/ |
+
+Publish readiness UX (preflight listing missing vars, copy-ready shell snippets, Test connection, readiness panel) is **accepted as post-freeze roadmap** — **not** required for Section B / adoption DoD.
+
+### Product asks (§18–19) — triage (feature freeze)
+
+Accepted as **valuable**; **not** shipping during freeze. Priority after **Enterprise adoption DONE**:
+
+| Ask | Priority after freeze | Notes |
+| --- | --- | --- |
+| **A** Fail-fast URL / response-class preflight before Gate 3 | **P1** | Highest value from this retest |
+| **B** Failure taxonomy + owner (`repo` / `environment` / `extension`) | **P1** | Include in `{ ok, gates }` |
+| **C** Confluence publish readiness preflight | **P1** | Env var names + missing files |
+| **D** Persist Section B result JSON in repo | **P2** | e.g. `.a11y-studio/section-b-result.json` |
+| **E** First-run onboarding wizard | **P2** / world-class | HOLD until DoD |
+| Support bundle / run-mode one-liners / setup-spec UI | **P2+** | Backlog |
+
+**Do not** implement these on the customer laptop or open vendor-repo PRs for them now.
+
+---
+
 ## Copilot — your job this session (read first)
 
 **Vendor is in FEATURE FREEZE.** Your job is **one verification run** on the **customer monorepo** — not new features, not vendor-repo PRs, not the world-class implementation request doc.
@@ -71,15 +125,16 @@ Overall: PASS / PARTIAL / BLOCKED / INCONCLUSIVE
 
 ## ⛔ BLOCKING — Copilot: do this next (highest priority)
 
-**Status on this laptop:**
+**Status on this laptop (vendor-accepted 2026-07-17):**
 
 | Area | Status |
 | --- | --- |
-| **Section A** | **PASS** (Pass 3 on **1.0.7** — do not re-run unless regression) |
-| **Step 0** | **Retest on 1.0.11** — confirm **Help → About** · disable `ms-playwright` if still installed |
-| **Section B** | **Retest required on Marketplace 1.0.11** — Pass 3 was **0/4** on **1.0.7** |
+| **Section A** | **PASS** (Pass 3 — do not re-run unless regression) |
+| **Step 0** | **DONE** — **1.0.11** + `ms-playwright` disabled for Section B run |
+| **Section B** | Gate 1 **PASS** · Gate 2 **PASS** · Gate 3 **FAIL (environment/route)** · Gate 4 **SKIPPED** |
+| **Next blocker** | Fix **staging entry URL** (404 / `NoSuchKey`) with env owners — then re-run Section B command |
 
-**Vendor acknowledgment:** Pass 3 Section A is **accepted**. Section B was correctly **INCONCLUSIVE** on **1.0.7** because gates were **NOT RUN (UI)**. **Retest Section B on 1.0.11** using the panel or automation commands below — **not** terminal Playwright.
+**Vendor acknowledgment:** Extension evidence path is **valid**. Gate 3 is **not** an A11y Studio Marketplace P0. Selector timeout on `mock-navigation-item` is **downstream** of a non-app staging response.
 
 **Do not** start **Record flow** or new extension-based spec development until Gate 1 + Gate 3 **PASS** from the panel (or automated Section B command).
 
@@ -371,7 +426,7 @@ Submit at **https://a11ystudio.io/report/**:
 7. World-class doc: catalog only — not implemented
 8. Verdict: Section A · Section B _/4 · Overall
 
-**Until Section B retest on 1.0.11:** Section A **PASS** · Section B **pending** · Overall **INCONCLUSIVE** · Expand all **known issue**
+**Until staging URL is healthy and Gate 3 retests PASS:** Section A **PASS** · Section B **PARTIAL** (env) · Overall **BLOCKED (environment)** · Expand all **known P1** · **No vendor hotfix** for Gate 3
 
 ---
 
@@ -381,8 +436,8 @@ Submit at **https://a11ystudio.io/report/**:
 | --- | --- |
 | Duplicate titles, ESM setup, wrong `--project`, wrong `storageState` layout | Customer repo |
 | Diagnose, spec discovery, Playwright resolution, `storageState` auto-repair, Section B automation | A11y Studio vendor |
-| Dev server down, VPN, greyed Record/Run | Environment |
-| Setup wizard, §9 panels, precedence UI | Vendor roadmap |
+| Dev server down, VPN, greyed Record/Run, **staging URL 404 / non-app response** | **Environment** |
+| Setup wizard, §9 panels, precedence UI, env preflight taxonomy, Confluence secret UX | Vendor roadmap (post-freeze) |
 
 ---
 
