@@ -6,7 +6,7 @@
 
 **Raw (fetch / paste):** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
 
-**Cache-bust fetch (prefer if page looks old):** https://cdn.jsdelivr.net/gh/a11ystudio/media@f58b3e9/docs/enterprise-adoption-laptop.md  
+**Cache-bust fetch (prefer if page looks old):** https://cdn.jsdelivr.net/gh/a11ystudio/media@e75fdca/docs/enterprise-adoption-laptop.md  
 
 The human cannot paste long chat instructions into you. This GitHub page is the vendor's message to you **and** the shared script for **human + Copilot pair testing**.
 
@@ -139,7 +139,7 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 **Document revision:** **2026-07-22T22:00Z** · **Supersedes all earlier versions of this URL**  
 **GitHub:** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 **Canonical raw:** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
-**Cache-bust (pinned commit):** https://cdn.jsdelivr.net/gh/a11ystudio/media@bddf5ad/docs/enterprise-adoption-laptop.md  
+**Cache-bust (pinned commit):** https://cdn.jsdelivr.net/gh/a11ystudio/media@e75fdca/docs/enterprise-adoption-laptop.md  
 
 | Field | Value |
 | --- | --- |
@@ -151,7 +151,7 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 
 ### How to read this page (anti-stale)
 
-1. Confirm **Document revision** is **2026-07-22T22:00Z** (or newer). If you see floor **v1.0.13** or an older revision time, refetch via the **cache-bust** jsDelivr link at the top.
+1. Confirm **Document revision** is **2026-07-23T00:00Z** (or newer) and floor **v1.0.15**. If you see **v1.0.14** or older, refetch via the **cache-bust** jsDelivr link at the top.
 2. Only sections marked **CURRENT** are actionable. **YOUR TODO NOW** + **GATE 3 PATH** are the priority.
 3. Sections marked **HISTORICAL** are context only.
 4. If two bullets disagree, the **newer dated** block wins.
