@@ -10,7 +10,7 @@
 
 The human cannot paste long chat instructions into you. This GitHub page is the vendor's message to you **and** the shared script for **human + Copilot pair testing**.
 
-**Install Marketplace `a11ystudio.a11y-studio` `1.0.14` (or newer), then Reload Window**, before any Section B / Gate 3 retest. Do **not** keep testing on **1.0.13** or earlier.
+**Install Marketplace `a11ystudio.a11y-studio` `1.0.15` (or newer), then Reload Window**, before any Section B / Gate 3 retest. Do **not** keep testing on **1.0.14** or earlier.
 
 ---
 
@@ -30,7 +30,7 @@ The human cannot paste long chat instructions into you. This GitHub page is the 
 
 | # | Todo | Owner | Done when |
 | --- | --- | --- | --- |
-| **T1** | Confirm extension is **1.0.14** + **Reload Window** | Human + Copilot | Version verified |
+| **T1** | Confirm extension is **1.0.15** + **Reload Window** | Human + Copilot | Version verified |
 | **T2** | Check staging **entry URL** health (app HTML vs 404 / `NoSuchKey`) in a normal browser | Human (Copilot records) | Q1 answered |
 | **T3** | Flow package chosen + active env = staging (or agreed remote) + auth profile saved | Human | Panel shows env + auth |
 | **T4** | **Diagnose Node & Playwright** → PASS (Gate 1) | Human or Copilot | Output excerpt |
@@ -42,7 +42,7 @@ The human cannot paste long chat instructions into you. This GitHub page is the 
 
 **Not your todo:** Expand-all fixes, world-class wizard, sidebar redesign, Chrome/Figma, sauce-demo as Gate 3 substitute, vendor-repo coding, naming any customer org/repo/hostname in reports (use **example** / generic labels only).
 
-**Feature freeze:** **ON** after 1.0.14 — no Marketplace bump until Gate 3 PASS or a new written waive.
+**Feature freeze:** **ON** after 1.0.15 — no Marketplace bump until Gate 3 PASS or a new written waive.
 
 ---
 
@@ -72,7 +72,7 @@ The human cannot paste long chat instructions into you. This GitHub page is the 
 Copy this checklist into the Copilot chat on the **customer monorepo** laptop. Check off together.
 
 ### Step 0 — Install
-1. Extensions → **A11y Studio** → **1.0.14**.
+1. Extensions → **A11y Studio** → **1.0.15**.
 2. Command Palette → **Developer: Reload Window**.
 3. Confirm version on the Extensions detail page.
 
@@ -143,9 +143,9 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 
 | Field | Value |
 | --- | --- |
-| **This revision** | **2026-07-22T22:00Z** — floor **v1.0.14**; detailed Gate 3 pair path; Expand all skipped |
-| **Marketplace floor** | **v1.0.14** LIVE |
-| **Feature freeze** | **ON** after 1.0.14 |
+| **This revision** | **2026-07-23T00:00Z** — floor **v1.0.15**; PII/recording/scan hotfixes + VR-2…VR-5; Expand all skipped |
+| **Marketplace floor** | **v1.0.15** LIVE |
+| **Feature freeze** | **ON** after 1.0.15 |
 | **Copilot workspace** | **Customer monorepo only** — never the `a11y-studio` vendor repo |
 | **Naming** | Reports must stay **neutral** — no customer org, repo, or hostname strings |
 
@@ -158,18 +158,20 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 
 ### Install (CURRENT)
 
-**Extension:** Marketplace **`a11ystudio.a11y-studio` `1.0.14`**
+**Extension:** Marketplace **`a11ystudio.a11y-studio` `1.0.15`**
 
-1. Extensions → A11y Studio → update to **1.0.14**.
+1. Extensions → A11y Studio → update to **1.0.15**.
 2. **Developer: Reload Window**.
 3. Confirm version in Extensions detail.
 
-### Shipped in 1.0.14 (exercise on this laptop)
+### Shipped in 1.0.15 (exercise on this laptop)
 
 | Item | Why it matters |
 | --- | --- |
+| **PII resolve from a11y-studio.json** | Diagnose must not false-flag when file has `screenshotsOnViolation: false` |
+| **Force stop recording** | Clears stale recording lock after Reload |
+| **Diagnose self-heal CTAs** | Node arch / Chrome channel / hoist install |
 | **Reports & publish** view | Confluence run actions |
-| **Confluence Secret Storage** | Token under Help & settings → Integrations |
 | **Unified Playwright resolve** | Diagnose / Record / Run share blockers |
 | **Support bundle** | Escalation without secrets (**T6**) |
 | **URL fail-fast** | Bad staging classified before selector noise |
@@ -183,7 +185,7 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 ### CURRENT (2026-07-22) — Copilot report block (fill and return)
 
 ```
-Extension version installed: ______ (must be 1.0.14+)
+Extension version installed: ______ (must be 1.0.15+)
 Reload Window done: yes / no
 Pair run with human: yes / no
 Flow package chosen: yes / no
@@ -208,4 +210,4 @@ Notes (neutral — no org/repo/host names): ______
 
 ### HISTORICAL — prior floors
 
-Earlier briefs targeted **1.0.11–1.0.13**. Prefer **1.0.14** for all new runs. Prior TODO tables without the Gate 3 PATH are obsolete.
+Earlier briefs targeted **1.0.11–1.0.14**. Prefer **1.0.15** for all new runs. Prior TODO tables without the Gate 3 PATH are obsolete.
