@@ -1,6 +1,6 @@
 # A11y Studio — enterprise adopt-existing laptop brief
 
-## COPILOT — OPEN THIS URL (CURRENT 2026-07-23T22:00Z)
+## COPILOT — OPEN THIS URL (CURRENT 2026-07-23T22:10Z)
 
 **GitHub (read here):** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 
@@ -136,14 +136,14 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 
 ## Document revision
 
-**Document revision:** **2026-07-23T22:00Z** · **Supersedes all earlier versions of this URL**  
+**Document revision:** **2026-07-23T22:10Z** · **Supersedes all earlier versions of this URL**  
 **GitHub:** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 **Canonical raw:** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
 **Cache-bust (pinned commit):** https://cdn.jsdelivr.net/gh/a11ystudio/media@99533ec/docs/enterprise-adoption-laptop.md  
 
 | Field | Value |
 | --- | --- |
-| **This revision** | **2026-07-23T22:00Z** — floor **v1.0.16** LIVE; recording exit + storageState + env-scoped Gate 3; Expand all skipped |
+| **This revision** | **2026-07-23T22:10Z** — floor **v1.0.16** LIVE; recording exit + storageState + env-scoped Gate 3; Expand all skipped |
 | **Marketplace floor** | **v1.0.16** LIVE |
 | **Feature freeze** | **ON** after 1.0.16 |
 | **Copilot workspace** | **Customer monorepo only** — never the `a11y-studio` vendor repo |
@@ -151,7 +151,7 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 
 ### How to read this page (anti-stale)
 
-1. Confirm **Document revision** is **2026-07-23T22:00Z** (or newer) and floor **v1.0.16**. If you see **v1.0.15** or older, refetch via the **cache-bust** jsDelivr link at the top.
+1. Confirm **Document revision** is **2026-07-23T22:10Z** (or newer) and floor **v1.0.16**. If you see **v1.0.15** or older, refetch via the **cache-bust** jsDelivr link at the top.
 2. Only sections marked **CURRENT** are actionable. **YOUR TODO NOW** + **GATE 3 PATH** are the priority.
 3. Sections marked **HISTORICAL** are context only.
 4. If two bullets disagree, the **newer dated** block wins.
@@ -181,10 +181,10 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 | --- | --- |
 | **Expand all** on Flow Runner | Known FAIL — **skip** (**T7**); vendor later |
 
-### CURRENT (2026-07-22) — Copilot report block (fill and return)
+### CURRENT (2026-07-23) — Copilot report block (fill and return)
 
 ```
-Extension version installed: ______ (must be 1.0.15+)
+Extension version installed: ______ (must be 1.0.16+)
 Reload Window done: yes / no
 Pair run with human: yes / no
 Flow package chosen: yes / no
@@ -209,4 +209,4 @@ Notes (neutral — no org/repo/host names): ______
 
 ### HISTORICAL — prior floors
 
-Earlier briefs targeted **1.0.11–1.0.14**. Prefer **1.0.15** for all new runs. Prior TODO tables without the Gate 3 PATH are obsolete.
+Earlier briefs targeted **1.0.11–1.0.15**. Prefer **1.0.16** for all new runs. Prior TODO tables without the Gate 3 PATH are obsolete.
