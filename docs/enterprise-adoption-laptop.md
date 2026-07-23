@@ -1,21 +1,27 @@
 # A11y Studio — enterprise adopt-existing laptop brief
 
-## COPILOT — OPEN THIS URL (CURRENT 2026-07-23T22:40Z)
+## COPILOT — OPEN THIS URL (CURRENT 2026-07-23T22:55Z)
 
 **GitHub (read here):** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 
 **Raw (fetch / paste):** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
 
-**Cache-bust fetch (prefer if page looks old):** https://cdn.jsdelivr.net/gh/a11ystudio/media@94b8890/docs/enterprise-adoption-laptop.md  
+**Cache-bust fetch (prefer if page looks old):** https://cdn.jsdelivr.net/gh/a11ystudio/media@PIN_AFTER_PUSH/docs/enterprise-adoption-laptop.md  
 
 The human cannot paste long chat instructions into you. This GitHub page is the vendor's message to you **and** the shared script for **human + Copilot pair testing**.
+
+### World product — not one client (read first)
+
+**A11y Studio is a global product.** Named environments (`local`, `qa`, `staging`, `dev2`, …) come from **each repo’s** `a11y-studio.json` → `flowRunner.environments`. The product does **not** prefer any key. Marketplace / VSIX behavior must stay valid for **any** team worldwide.
+
+This brief is **pair-run protocol for one adoption laptop session**. Env keys below are **human-designated for this run only** — not product defaults and not what other customers must use.
 
 **Install Marketplace `a11ystudio.a11y-studio` `1.0.17` (or newer), then Reload Window**, before any Section B / Gate 3 retest. Do **not** keep testing on **1.0.16**, **1.0.15**, or earlier — skip straight to **1.0.17**.
 
 ### Security (non-negotiable)
 
 - Never write customer **org**, **repo**, **hostname**, **URL**, or **person** names in chat, Output excerpts, or the report block.
-- Use only: `local` / `qa` / `staging` / `other`, `app HTML` / `404` / `NoSuchKey`, generic path shapes (`tests/a11y/.auth/<profile>.json`).
+- Use only generic env **kinds** the human confirms (`local` / `qa` / `staging` / `other`), `app HTML` / `404` / `NoSuchKey`, generic path shapes (`tests/a11y/.auth/<profile>.json`).
 - Never paste secrets, tokens, or storageState contents.
 
 ### Context you must keep straight
@@ -25,7 +31,7 @@ The human cannot paste long chat instructions into you. This GitHub page is the 
 | **Floor** | Marketplace **1.0.17** LIVE — includes **1.0.16** Gate 3 hotfixes **plus** panel Diagnostics / Run picker / silent Expand / status-bar |
 | **Freeze** | **ON** after **1.0.17** — next bump only after Gate 3 PASS or a new written waive |
 | **Your job** | Gate 3 pair run on the **customer monorepo** laptop only — not the vendor `a11y-studio` repo |
-| **Agreed healthy env** | **`qa`** — use this for Gate 3. **`staging` is the known-dead target** (404 / `NoSuchKey`) on this laptop — do **not** select it for Gate 3 |
+| **Healthy env (this session)** | Human designates which Flow environment is healthy. **For this laptop run:** use env key **`qa`**. If the human says another key is dead (on this laptop: **`staging`** → 404 / `NoSuchKey`), **do not** select it — that is session hygiene, not a product rule that “staging is always bad.” |
 | **Record flow** | **Not required** for Gate 3 — automation runs **existing** specs. Recording-exit fixes are for Record paths; they cannot sink Gate 3 |
 | **Highest-risk step** | **Step 3 — Auth / `.auth` / `storageState` path** |
 | **What is new vs 1.0.15** | Recording exit · storageState · env-scoped Gate 3 · Diagnostics section · Run-all Quick Pick · quieter Expand · status-bar colors · Install Studio CLI CTA |
@@ -42,22 +48,22 @@ The human cannot paste long chat instructions into you. This GitHub page is the 
 | **Copilot** | Runs Command Palette commands when allowed, reads Output / `{ ok, gates }` / support bundle, fills the report block, **never** pastes secrets, org, repo, or hostnames |
 | **Together** | Walk **GATE 3 PATH** below step-by-step; stop on red URL; escalate with support bundle |
 
-**Goal:** Gate 3 **PASS** = **Run all flow tests** succeeds on the agreed healthy **`qa`** environment with matching auth. Expand all is **out of scope**. **Do not** use **`staging`** for this run — it is the known-dead URL on this laptop.
+**Goal:** Gate 3 **PASS** = **Run all flow tests** succeeds on the **human-designated healthy** Flow environment for this session (here: env key **`qa`**) with matching auth. Expand all is **out of scope**. Skip any env the human marks dead for this run (here: **`staging`** → 404 / `NoSuchKey`). Other customers will designate different keys — that is expected.
 
 ---
 
-### YOUR TODO NOW (2026-07-23) — Gate 3 pair run on **QA**
+### YOUR TODO NOW (2026-07-23) — Gate 3 pair run (this session: healthy env = **`qa`**)
 
 | # | Todo | Owner | Done when |
 | --- | --- | --- | --- |
 | **T1** | Confirm extension is **1.0.17** + **Reload Window** | Human + Copilot | Version verified |
-| **T2** | Check **`qa`** entry URL health (app HTML vs 404 / `NoSuchKey`) in a normal browser — **not** `staging` | Human (Copilot records) | Q1 answered |
-| **T3** | Flow package chosen + active env = **`qa`** + auth profile saved for **`qa`** | Human | Panel shows env + auth |
+| **T2** | Check **this session’s healthy env** entry URL (human: **`qa`**) — app HTML vs 404 / `NoSuchKey`. Do **not** open envs the human marked dead (here: **`staging`**) | Human (Copilot records) | Q1 answered |
+| **T3** | Flow package chosen + active env = **human-designated healthy key** (here: **`qa`**) + auth profile for that env | Human | Panel shows env + auth |
 | **T4** | **Diagnose Node & Playwright** → PASS (Gate 1) | Human or Copilot | Output excerpt |
 | **T5** | If URL = **app HTML** → run **Guided adoption (Section B)** or Command Palette **Run adoption Section B gates** | Human + Copilot | Paste `{ ok, gates }` |
 | **T6** | Write **support bundle** after Section B or on FAIL | Copilot / Human | Path reported |
 | **T7** | **Skip Expand all** — known FAIL; do not block Gate 3 | Both | Noted skipped |
-| **T8** | If URL unhealthy → **stop**; report env only (no selector patches) | Both | Stopped cleanly |
+| **T8** | If URL unhealthy → **stop**; report env **kind** only (no selector patches, no hostnames) | Both | Stopped cleanly |
 | **T9** | Optional: Integrations → Confluence **Set token** row visible (do not paste token) | Human | yes / no |
 
 **Not your todo:** Expand-all fixes, world-class wizard, sidebar redesign, Chrome/Figma, sauce-demo as Gate 3 substitute, vendor-repo coding, naming any customer org/repo/hostname in reports (use **example** / generic labels only).
@@ -102,16 +108,16 @@ Copy this checklist into the Copilot chat on the **customer monorepo** laptop. C
 3. Confirm panel shows Playwright / Diagnose rows (plumbing).
 
 ### Step 2 — URL health (hard stop if red)
-1. Select the **`qa`** environment — the **agreed healthy** remote for this Gate 3 run.
-2. **Do not** select **`staging`** for Gate 3 on this laptop — it is the **known-dead** target (404 / `NoSuchKey`). Picking it triggers the hard stop and wastes the session.
-3. Human opens the **same `qa` entry URL** in Chrome/Edge.
+1. Ask the human: **which Flow environment key is healthy for this Gate 3 run?** On **this** laptop session the answer is **`qa`**. (Other teams use other keys — product supports all of them.)
+2. Select that environment in the panel. **Do not** select keys the human marked dead for this session (here: **`staging`** → 404 / `NoSuchKey`). Picking a dead URL triggers the hard stop and wastes the session — that is **session** guidance, not “staging is always invalid in the product.”
+3. Human opens the **same entry URL** for the chosen env in Chrome/Edge.
 4. Verdict:
    - **App HTML** (login or app shell) → continue.
    - **404** / **NoSuchKey** / empty error page → **STOP**. Fill report: URL unhealthy. Env owners fix. Do **not** chase selectors.
-5. Copilot records only: `app HTML` / `404` / `NoSuchKey` / `other` — **no hostname**. Env kind must be **`qa`**.
+5. Copilot records only: env kind + `app HTML` / `404` / `NoSuchKey` / `other` — **no hostname**.
 
 ### Step 3 — Auth (highest-risk Gate 3 FAIL — watch carefully)
-1. Under **Auth**, select or **Add auth profile** for **`qa`** (not staging).
+1. Under **Auth**, select or **Add auth profile** for the **same** healthy env key the human designated (this session: **`qa`**).
 2. Human completes **Setup auth** / Save auth state in the headed browser (MFA/OTP if needed).
 3. Confirm a file exists under the Flow package: `tests/a11y/.auth/<profile>.json` (or the package’s configured testDir `.auth/`).
 4. If Output later says `storageState` / `.auth` **ENOENT** → re-run Setup auth; do not invent paths. Specs must point at the file that exists.
@@ -157,14 +163,14 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 
 ## Document revision
 
-**Document revision:** **2026-07-23T22:40Z** · **Supersedes all earlier versions of this URL**  
+**Document revision:** **2026-07-23T22:55Z** · **Supersedes all earlier versions of this URL**  
 **GitHub:** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 **Canonical raw:** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
-**Cache-bust (pinned commit):** https://cdn.jsdelivr.net/gh/a11ystudio/media@94b8890/docs/enterprise-adoption-laptop.md  
+**Cache-bust (pinned commit):** https://cdn.jsdelivr.net/gh/a11ystudio/media@PIN_AFTER_PUSH/docs/enterprise-adoption-laptop.md  
 
 | Field | Value |
 | --- | --- |
-| **This revision** | **2026-07-23T22:40Z** — floor **v1.0.17**; Gate 3 on **`qa`** (not dead **`staging`**); Record not required; auth = highest risk |
+| **This revision** | **2026-07-23T22:55Z** — world-product framing; env keys = session protocol; this laptop uses **`qa`** (skip dead **`staging`** for this run only) |
 | **Marketplace floor** | **v1.0.17** LIVE (this-release-only waive for Gate 3 laptop floor) |
 | **Feature freeze** | **ON** after 1.0.17 — Gate 3 PASS or new waive before next publish |
 | **Copilot workspace** | **Customer monorepo only** — never the `a11y-studio` vendor repo |
@@ -172,7 +178,7 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 
 ### How to read this page (anti-stale)
 
-1. Confirm **Document revision** is **2026-07-23T22:40Z** (or newer) and floor **v1.0.17**. If you see **staging** as the Gate 3 target, or floor **v1.0.16** / **v1.0.15**, refetch the **raw** GitHub URL (or a fresh jsDelivr pin).
+1. Confirm **Document revision** is **2026-07-23T22:55Z** (or newer) and floor **v1.0.17**. If the brief treats one env key as forever product truth (instead of human-designated for this session), refetch.
 2. Only sections marked **CURRENT** are actionable. **YOUR TODO NOW** + **GATE 3 PATH** are the priority.
 3. Sections marked **HISTORICAL** are context only.
 4. If two bullets disagree, the **newer dated** block wins.
@@ -194,7 +200,7 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 | **Env-scoped Gate 3** | Active env name in spec basename — skips unrelated env URLs |
 | **Includes 1.0.15** | PII file-only resolve · Force stop · Diagnose self-heal · scan storm skip |
 | **Support bundle** | Escalation without secrets (**T6**) |
-| **URL fail-fast** | Bad URL classified before selector noise — do not pick known-dead **`staging`** |
+| **URL fail-fast** | Bad URL classified before selector noise — skip envs the **human** marks dead for this session |
 
 ### Known deferred
 
@@ -209,9 +215,9 @@ Extension version installed: ______ (must be 1.0.17+)
 Reload Window done: yes / no
 Pair run with human: yes / no
 Flow package chosen: yes / no
-Active env kind: qa (required for this Gate 3) / local / staging / other (no hostname)
-QA entry URL health: app HTML / 404 / NoSuchKey / other: ______
-Auth profile saved for qa (.auth file present): yes / no / n/a (public flows)
+Active env kind (human-designated for this session): qa / local / staging / other (no hostname)
+Healthy env entry URL health: app HTML / 404 / NoSuchKey / other: ______
+Auth profile saved for that env (.auth file present): yes / no / n/a (public flows)
 Diagnose (Gate 1): PASS / FAIL — firstAction if any: ______
 Section B / Guided adoption: skipped (URL) / ran
 Gate 2 (specs): PASS / FAIL / SKIPPED
@@ -227,7 +233,7 @@ Notes (neutral — no org/repo/host names): ______
 
 ### What Copilot says to the human at start of session
 
-> Open this brief (GitHub or cache-bust link). We will walk **GATE 3 PATH** Steps 0–6 on **`qa`** together — **not** `staging` (known dead). You click auth and confirm the **qa** URL in a browser; I read Output and fill the report block. Record is not required. We stop if the URL is not app HTML. We skip Expand all.
+> Open this brief (GitHub or cache-bust link). A11y Studio is a **world product** — env keys come from each repo’s config. For **this** pair run the human designates the healthy env (here: **`qa`**; skip **`staging`** if they say it is dead). We walk **GATE 3 PATH** Steps 0–6. You click auth and confirm the URL; I read Output and fill the report block. Record is not required. We stop if the URL is not app HTML. We skip Expand all.
 
 ### HISTORICAL — prior floors
 
