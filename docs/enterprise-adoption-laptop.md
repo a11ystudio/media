@@ -1,6 +1,6 @@
 # A11y Studio — enterprise adopt-existing laptop brief
 
-## COPILOT — OPEN THIS URL (CURRENT 2026-07-23T22:10Z)
+## COPILOT — OPEN THIS URL (CURRENT 2026-07-23T22:15Z)
 
 **GitHub (read here):** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 
@@ -136,22 +136,22 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 
 ## Document revision
 
-**Document revision:** **2026-07-23T22:10Z** · **Supersedes all earlier versions of this URL**  
+**Document revision:** **2026-07-23T22:15Z** · **Supersedes all earlier versions of this URL**  
 **GitHub:** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 **Canonical raw:** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
 **Cache-bust (pinned commit):** https://cdn.jsdelivr.net/gh/a11ystudio/media@528f06c/docs/enterprise-adoption-laptop.md  
 
 | Field | Value |
 | --- | --- |
-| **This revision** | **2026-07-23T22:10Z** — floor **v1.0.16** LIVE; recording exit + storageState + env-scoped Gate 3; Expand all skipped |
-| **Marketplace floor** | **v1.0.16** LIVE |
+| **This revision** | **2026-07-23T22:15Z** — floor **v1.0.16** LIVE; recording exit + storageState + env-scoped Gate 3; Expand all skipped |
+| **Marketplace floor** | **v1.0.16** LIVE (publisher hub confirmed) |
 | **Feature freeze** | **ON** after 1.0.16 |
 | **Copilot workspace** | **Customer monorepo only** — never the `a11y-studio` vendor repo |
 | **Naming** | Reports must stay **neutral** — no customer org, repo, or hostname strings |
 
 ### How to read this page (anti-stale)
 
-1. Confirm **Document revision** is **2026-07-23T22:10Z** (or newer) and floor **v1.0.16**. If you see **v1.0.15** or older, refetch via the **cache-bust** jsDelivr link at the top.
+1. Confirm **Document revision** is **2026-07-23T22:15Z** (or newer) and floor **v1.0.16**. If you see **v1.0.15** or older, refetch via the **cache-bust** jsDelivr link at the top.
 2. Only sections marked **CURRENT** are actionable. **YOUR TODO NOW** + **GATE 3 PATH** are the priority.
 3. Sections marked **HISTORICAL** are context only.
 4. If two bullets disagree, the **newer dated** block wins.
