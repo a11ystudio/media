@@ -6,7 +6,7 @@
 
 **Raw (fetch / paste):** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
 
-**Cache-bust fetch (prefer if page looks old):** https://cdn.jsdelivr.net/gh/a11ystudio/media@ec4f637/docs/enterprise-adoption-laptop.md  
+**Cache-bust fetch (prefer if page looks old):** https://cdn.jsdelivr.net/gh/a11ystudio/media@894e4e1/docs/enterprise-adoption-laptop.md  
 
 The human cannot paste long chat instructions into you. This GitHub page is the vendor's message to you **and** the shared script for **human + Copilot pair testing**.
 
@@ -155,7 +155,7 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 **Document revision:** **2026-07-23T23:45Z** · **Supersedes all earlier versions of this URL**  
 **GitHub:** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 **Canonical raw:** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
-**Cache-bust (pinned commit):** https://cdn.jsdelivr.net/gh/a11ystudio/media@ec4f637/docs/enterprise-adoption-laptop.md  
+**Cache-bust (pinned commit):** https://cdn.jsdelivr.net/gh/a11ystudio/media@894e4e1/docs/enterprise-adoption-laptop.md  
 
 | Field | Value |
 | --- | --- |
