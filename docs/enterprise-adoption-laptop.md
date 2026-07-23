@@ -1,12 +1,12 @@
 # A11y Studio — enterprise adopt-existing laptop brief
 
-## COPILOT — OPEN THIS URL (CURRENT 2026-07-23T23:45Z)
+## COPILOT — OPEN THIS URL (CURRENT 2026-07-23T22:40Z)
 
 **GitHub (read here):** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 
 **Raw (fetch / paste):** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
 
-**Cache-bust fetch (prefer if page looks old):** https://cdn.jsdelivr.net/gh/a11ystudio/media@894e4e1/docs/enterprise-adoption-laptop.md  
+**Cache-bust fetch (prefer if page looks old):** https://cdn.jsdelivr.net/gh/a11ystudio/media@PIN_AFTER_PUSH/docs/enterprise-adoption-laptop.md  
 
 The human cannot paste long chat instructions into you. This GitHub page is the vendor's message to you **and** the shared script for **human + Copilot pair testing**.
 
@@ -15,7 +15,7 @@ The human cannot paste long chat instructions into you. This GitHub page is the 
 ### Security (non-negotiable)
 
 - Never write customer **org**, **repo**, **hostname**, **URL**, or **person** names in chat, Output excerpts, or the report block.
-- Use only: `local` / `staging` / `other`, `app HTML` / `404` / `NoSuchKey`, generic path shapes (`tests/a11y/.auth/<profile>.json`).
+- Use only: `local` / `qa` / `staging` / `other`, `app HTML` / `404` / `NoSuchKey`, generic path shapes (`tests/a11y/.auth/<profile>.json`).
 - Never paste secrets, tokens, or storageState contents.
 
 ### Context you must keep straight
@@ -25,8 +25,12 @@ The human cannot paste long chat instructions into you. This GitHub page is the 
 | **Floor** | Marketplace **1.0.17** LIVE — includes **1.0.16** Gate 3 hotfixes **plus** panel Diagnostics / Run picker / silent Expand / status-bar |
 | **Freeze** | **ON** after **1.0.17** — next bump only after Gate 3 PASS or a new written waive |
 | **Your job** | Gate 3 pair run on the **customer monorepo** laptop only — not the vendor `a11y-studio` repo |
+| **Agreed healthy env** | **`qa`** — use this for Gate 3. **`staging` is the known-dead target** (404 / `NoSuchKey`) on this laptop — do **not** select it for Gate 3 |
+| **Record flow** | **Not required** for Gate 3 — automation runs **existing** specs. Recording-exit fixes are for Record paths; they cannot sink Gate 3 |
+| **Highest-risk step** | **Step 3 — Auth / `.auth` / `storageState` path** |
 | **What is new vs 1.0.15** | Recording exit · storageState · env-scoped Gate 3 · Diagnostics section · Run-all Quick Pick · quieter Expand · status-bar colors · Install Studio CLI CTA |
 | **P0-1 / P0-2** | Fixed since **1.0.16** (shipped again in **1.0.17**) — retest on **1.0.17**; never stay on 1.0.15 |
+| **1.0.17 publish** | **Written waive** (Copilot was stuck on 1.0.15). Legitimate. **Gate 3 still open**; freeze stays **ON** |
 
 ---
 
@@ -38,17 +42,17 @@ The human cannot paste long chat instructions into you. This GitHub page is the 
 | **Copilot** | Runs Command Palette commands when allowed, reads Output / `{ ok, gates }` / support bundle, fills the report block, **never** pastes secrets, org, repo, or hostnames |
 | **Together** | Walk **GATE 3 PATH** below step-by-step; stop on red URL; escalate with support bundle |
 
-**Goal:** Gate 3 **PASS** = **Run all flow tests** succeeds on a healthy same-app staging URL with matching auth. Expand all is **out of scope**.
+**Goal:** Gate 3 **PASS** = **Run all flow tests** succeeds on the agreed healthy **`qa`** environment with matching auth. Expand all is **out of scope**. **Do not** use **`staging`** for this run — it is the known-dead URL on this laptop.
 
 ---
 
-### YOUR TODO NOW (2026-07-23) — Gate 3 pair run on QA
+### YOUR TODO NOW (2026-07-23) — Gate 3 pair run on **QA**
 
 | # | Todo | Owner | Done when |
 | --- | --- | --- | --- |
 | **T1** | Confirm extension is **1.0.17** + **Reload Window** | Human + Copilot | Version verified |
-| **T2** | Check staging **entry URL** health (app HTML vs 404 / `NoSuchKey`) in a normal browser | Human (Copilot records) | Q1 answered |
-| **T3** | Flow package chosen + active env = staging (or agreed remote) + auth profile saved | Human | Panel shows env + auth |
+| **T2** | Check **`qa`** entry URL health (app HTML vs 404 / `NoSuchKey`) in a normal browser — **not** `staging` | Human (Copilot records) | Q1 answered |
+| **T3** | Flow package chosen + active env = **`qa`** + auth profile saved for **`qa`** | Human | Panel shows env + auth |
 | **T4** | **Diagnose Node & Playwright** → PASS (Gate 1) | Human or Copilot | Output excerpt |
 | **T5** | If URL = **app HTML** → run **Guided adoption (Section B)** or Command Palette **Run adoption Section B gates** | Human + Copilot | Paste `{ ok, gates }` |
 | **T6** | Write **support bundle** after Section B or on FAIL | Copilot / Human | Path reported |
@@ -72,14 +76,14 @@ The human cannot paste long chat instructions into you. This GitHub page is the 
 | **Audit only** | Run all flow tests only | Gates 1–2 already green |
 | **Audit + Confluence publish** | Run all, then Confluence publish | After Gate 3 PASS + publish configured |
 
-**Section B** is not a separate panel tab — it is the Guided adoption automation (Gates 1–3). Record flow is **not** required for Gate 3.
+**Section B** is not a separate panel tab — it is the Guided adoption automation (Gates 1–3). **Record flow is NOT required for Gate 3** — Gate 3 runs **existing** Flow specs. Recording process-exit cannot sink this gate; be most careful on **Step 3 (auth)**.
 
 | Gate | Meaning |
 | --- | --- |
 | **1** | Diagnose — Node + Playwright ready |
 | **2** | Runnable Flow specs discovered (not only `*.setup.spec.ts`) |
 | **3** | **Run all flow tests** succeeded ← **pass this** |
-| Record | SKIPPED in automation — needs interactive browser |
+| Record | SKIPPED in automation — needs interactive browser; **out of scope for Gate 3** |
 
 ---
 
@@ -98,15 +102,16 @@ Copy this checklist into the Copilot chat on the **customer monorepo** laptop. C
 3. Confirm panel shows Playwright / Diagnose rows (plumbing).
 
 ### Step 2 — URL health (hard stop if red)
-1. Select the **staging** (or agreed remote) environment — not a dead local URL unless that is the agreed target.
-2. Human opens the **same entry URL** in Chrome/Edge.
-3. Verdict:
+1. Select the **`qa`** environment — the **agreed healthy** remote for this Gate 3 run.
+2. **Do not** select **`staging`** for Gate 3 on this laptop — it is the **known-dead** target (404 / `NoSuchKey`). Picking it triggers the hard stop and wastes the session.
+3. Human opens the **same `qa` entry URL** in Chrome/Edge.
+4. Verdict:
    - **App HTML** (login or app shell) → continue.
    - **404** / **NoSuchKey** / empty error page → **STOP**. Fill report: URL unhealthy. Env owners fix. Do **not** chase selectors.
-4. Copilot records only: `app HTML` / `404` / `NoSuchKey` / `other` — **no hostname**.
+5. Copilot records only: `app HTML` / `404` / `NoSuchKey` / `other` — **no hostname**. Env kind must be **`qa`**.
 
-### Step 3 — Auth (most common Gate 3 FAIL)
-1. Under **Auth**, select or **Add auth profile** for that environment.
+### Step 3 — Auth (highest-risk Gate 3 FAIL — watch carefully)
+1. Under **Auth**, select or **Add auth profile** for **`qa`** (not staging).
 2. Human completes **Setup auth** / Save auth state in the headed browser (MFA/OTP if needed).
 3. Confirm a file exists under the Flow package: `tests/a11y/.auth/<profile>.json` (or the package’s configured testDir `.auth/`).
 4. If Output later says `storageState` / `.auth` **ENOENT** → re-run Setup auth; do not invent paths. Specs must point at the file that exists.
@@ -152,14 +157,14 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 
 ## Document revision
 
-**Document revision:** **2026-07-23T23:45Z** · **Supersedes all earlier versions of this URL**  
+**Document revision:** **2026-07-23T22:40Z** · **Supersedes all earlier versions of this URL**  
 **GitHub:** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 **Canonical raw:** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
-**Cache-bust (pinned commit):** https://cdn.jsdelivr.net/gh/a11ystudio/media@894e4e1/docs/enterprise-adoption-laptop.md  
+**Cache-bust (pinned commit):** https://cdn.jsdelivr.net/gh/a11ystudio/media@PIN_AFTER_PUSH/docs/enterprise-adoption-laptop.md  
 
 | Field | Value |
 | --- | --- |
-| **This revision** | **2026-07-23T23:45Z** — floor **v1.0.17** LIVE (waive — Copilot still on 1.0.15); Gate 3 pair path; security neutral-copy; freeze ON after ship |
+| **This revision** | **2026-07-23T22:40Z** — floor **v1.0.17**; Gate 3 on **`qa`** (not dead **`staging`**); Record not required; auth = highest risk |
 | **Marketplace floor** | **v1.0.17** LIVE (this-release-only waive for Gate 3 laptop floor) |
 | **Feature freeze** | **ON** after 1.0.17 — Gate 3 PASS or new waive before next publish |
 | **Copilot workspace** | **Customer monorepo only** — never the `a11y-studio` vendor repo |
@@ -167,7 +172,7 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 
 ### How to read this page (anti-stale)
 
-1. Confirm **Document revision** is **2026-07-23T23:45Z** (or newer) and floor **v1.0.17**. If you see **v1.0.16** / **v1.0.15** or older, refetch the **raw** GitHub URL (or a fresh jsDelivr pin after the human updates media).
+1. Confirm **Document revision** is **2026-07-23T22:40Z** (or newer) and floor **v1.0.17**. If you see **staging** as the Gate 3 target, or floor **v1.0.16** / **v1.0.15**, refetch the **raw** GitHub URL (or a fresh jsDelivr pin).
 2. Only sections marked **CURRENT** are actionable. **YOUR TODO NOW** + **GATE 3 PATH** are the priority.
 3. Sections marked **HISTORICAL** are context only.
 4. If two bullets disagree, the **newer dated** block wins.
@@ -189,7 +194,7 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 | **Env-scoped Gate 3** | Active env name in spec basename — skips unrelated env URLs |
 | **Includes 1.0.15** | PII file-only resolve · Force stop · Diagnose self-heal · scan storm skip |
 | **Support bundle** | Escalation without secrets (**T6**) |
-| **URL fail-fast** | Bad staging classified before selector noise |
+| **URL fail-fast** | Bad URL classified before selector noise — do not pick known-dead **`staging`** |
 
 ### Known deferred
 
@@ -204,9 +209,9 @@ Extension version installed: ______ (must be 1.0.17+)
 Reload Window done: yes / no
 Pair run with human: yes / no
 Flow package chosen: yes / no
-Active env kind: local / staging / other (no hostname)
-Staging entry URL health: app HTML / 404 / NoSuchKey / other: ______
-Auth profile saved (.auth file present): yes / no / n/a (public flows)
+Active env kind: qa (required for this Gate 3) / local / staging / other (no hostname)
+QA entry URL health: app HTML / 404 / NoSuchKey / other: ______
+Auth profile saved for qa (.auth file present): yes / no / n/a (public flows)
 Diagnose (Gate 1): PASS / FAIL — firstAction if any: ______
 Section B / Guided adoption: skipped (URL) / ran
 Gate 2 (specs): PASS / FAIL / SKIPPED
@@ -215,13 +220,14 @@ Paste { ok, gates } (or Output excerpt, neutral):
 ______
 Support bundle path: ______
 Expand all: SKIPPED (known FAIL)
+Record flow: SKIPPED (not required for Gate 3)
 Confluence Set token row visible: yes / no
 Notes (neutral — no org/repo/host names): ______
 ```
 
 ### What Copilot says to the human at start of session
 
-> Open this brief (GitHub or cache-bust link). We will walk **GATE 3 PATH** Steps 0–6 together. You click auth and confirm the URL in a browser; I read Output and fill the report block. We stop if the URL is not app HTML. We skip Expand all.
+> Open this brief (GitHub or cache-bust link). We will walk **GATE 3 PATH** Steps 0–6 on **`qa`** together — **not** `staging` (known dead). You click auth and confirm the **qa** URL in a browser; I read Output and fill the report block. Record is not required. We stop if the URL is not app HTML. We skip Expand all.
 
 ### HISTORICAL — prior floors
 
