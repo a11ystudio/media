@@ -1,16 +1,33 @@
 # A11y Studio — enterprise adopt-existing laptop brief
 
-## COPILOT — OPEN THIS URL (CURRENT 2026-07-23T22:15Z)
+## COPILOT — OPEN THIS URL (CURRENT 2026-07-24T00:30Z)
 
 **GitHub (read here):** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 
 **Raw (fetch / paste):** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
 
-**Cache-bust fetch (prefer if page looks old):** https://cdn.jsdelivr.net/gh/a11ystudio/media@355c00e/docs/enterprise-adoption-laptop.md  
+**Cache-bust fetch (prefer if page looks old):** https://cdn.jsdelivr.net/gh/a11ystudio/media@MAIN_SHA/docs/enterprise-adoption-laptop.md  
+*(Human replaces `MAIN_SHA` after media push — or use the pinned hash in Document revision below.)*
 
 The human cannot paste long chat instructions into you. This GitHub page is the vendor's message to you **and** the shared script for **human + Copilot pair testing**.
 
 **Install Marketplace `a11ystudio.a11y-studio` `1.0.16` (or newer), then Reload Window**, before any Section B / Gate 3 retest. Do **not** keep testing on **1.0.15** or earlier.
+
+### Security (non-negotiable)
+
+- Never write customer **org**, **repo**, **hostname**, **URL**, or **person** names in chat, Output excerpts, or the report block.
+- Use only: `local` / `staging` / `other`, `app HTML` / `404` / `NoSuchKey`, generic path shapes (`tests/a11y/.auth/<profile>.json`).
+- Never paste secrets, tokens, or storageState contents.
+
+### Context you must keep straight
+
+| Fact | Meaning for you |
+| --- | --- |
+| **Floor** | Marketplace **1.0.16** LIVE — recording exit, `storageState` fix, env-scoped Gate 3 already shipped |
+| **Freeze** | **ON** — vendor will **not** publish a new Marketplace version until Gate 3 PASS or a written waive |
+| **Your job** | Gate 3 pair run on the **customer monorepo** laptop only — not the vendor `a11y-studio` repo |
+| **Unreleased polish** | Panel copy / Diagnostics / Install CLI / multi-spec picker may exist as vendor PRs — **ignore**; not on this laptop until a future Marketplace version |
+| **P0-1 / P0-2** | Already fixed in **1.0.16** — retest recording exit + auth paths; do not treat as still open on 1.0.15 |
 
 ---
 
@@ -136,22 +153,22 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 
 ## Document revision
 
-**Document revision:** **2026-07-23T22:15Z** · **Supersedes all earlier versions of this URL**  
+**Document revision:** **2026-07-24T00:30Z** · **Supersedes all earlier versions of this URL**  
 **GitHub:** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 **Canonical raw:** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
-**Cache-bust (pinned commit):** https://cdn.jsdelivr.net/gh/a11ystudio/media@355c00e/docs/enterprise-adoption-laptop.md  
+**Cache-bust (pinned commit):** https://cdn.jsdelivr.net/gh/a11ystudio/media@PIN_AFTER_PUSH/docs/enterprise-adoption-laptop.md  
 
 | Field | Value |
 | --- | --- |
-| **This revision** | **2026-07-23T22:15Z** — floor **v1.0.16** LIVE; recording exit + storageState + env-scoped Gate 3; Expand all skipped |
+| **This revision** | **2026-07-24T00:30Z** — floor **v1.0.16** LIVE; Gate 3 pair path; security neutral-copy; freeze ON (no Marketplace bump) |
 | **Marketplace floor** | **v1.0.16** LIVE (publisher hub confirmed) |
-| **Feature freeze** | **ON** after 1.0.16 |
+| **Feature freeze** | **ON** after 1.0.16 — Gate 3 PASS or written waive before any publish |
 | **Copilot workspace** | **Customer monorepo only** — never the `a11y-studio` vendor repo |
-| **Naming** | Reports must stay **neutral** — no customer org, repo, or hostname strings |
+| **Naming** | Reports must stay **neutral** — no customer org, repo, hostname, or project codenames |
 
 ### How to read this page (anti-stale)
 
-1. Confirm **Document revision** is **2026-07-23T22:15Z** (or newer) and floor **v1.0.16**. If you see **v1.0.15** or older, refetch via the **cache-bust** jsDelivr link at the top.
+1. Confirm **Document revision** is **2026-07-24T00:30Z** (or newer) and floor **v1.0.16**. If you see **v1.0.15** or older, refetch the **raw** GitHub URL (or a fresh jsDelivr pin after the human updates media).
 2. Only sections marked **CURRENT** are actionable. **YOUR TODO NOW** + **GATE 3 PATH** are the priority.
 3. Sections marked **HISTORICAL** are context only.
 4. If two bullets disagree, the **newer dated** block wins.
