@@ -1,6 +1,6 @@
 # A11y Studio — enterprise adopt-existing laptop brief
 
-## COPILOT — OPEN THIS URL (CURRENT 2026-07-24T00:30Z)
+## COPILOT — OPEN THIS URL (CURRENT 2026-07-23T23:45Z)
 
 **GitHub (read here):** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 
@@ -10,7 +10,7 @@
 
 The human cannot paste long chat instructions into you. This GitHub page is the vendor's message to you **and** the shared script for **human + Copilot pair testing**.
 
-**Install Marketplace `a11ystudio.a11y-studio` `1.0.16` (or newer), then Reload Window**, before any Section B / Gate 3 retest. Do **not** keep testing on **1.0.15** or earlier.
+**Install Marketplace `a11ystudio.a11y-studio` `1.0.17` (or newer), then Reload Window**, before any Section B / Gate 3 retest. Do **not** keep testing on **1.0.16**, **1.0.15**, or earlier — skip straight to **1.0.17**.
 
 ### Security (non-negotiable)
 
@@ -22,11 +22,11 @@ The human cannot paste long chat instructions into you. This GitHub page is the 
 
 | Fact | Meaning for you |
 | --- | --- |
-| **Floor** | Marketplace **1.0.16** LIVE — recording exit, `storageState` fix, env-scoped Gate 3 already shipped |
-| **Freeze** | **ON** — vendor will **not** publish a new Marketplace version until Gate 3 PASS or a written waive |
+| **Floor** | Marketplace **1.0.17** LIVE — includes **1.0.16** Gate 3 hotfixes **plus** panel Diagnostics / Run picker / silent Expand / status-bar |
+| **Freeze** | **ON** after **1.0.17** — next bump only after Gate 3 PASS or a new written waive |
 | **Your job** | Gate 3 pair run on the **customer monorepo** laptop only — not the vendor `a11y-studio` repo |
-| **Unreleased polish** | Panel copy / Diagnostics / Install CLI / multi-spec picker may exist as vendor PRs — **ignore**; not on this laptop until a future Marketplace version |
-| **P0-1 / P0-2** | Already fixed in **1.0.16** — retest recording exit + auth paths; do not treat as still open on 1.0.15 |
+| **What is new vs 1.0.15** | Recording exit · storageState · env-scoped Gate 3 · Diagnostics section · Run-all Quick Pick · quieter Expand · status-bar colors · Install Studio CLI CTA |
+| **P0-1 / P0-2** | Fixed since **1.0.16** (shipped again in **1.0.17**) — retest on **1.0.17**; never stay on 1.0.15 |
 
 ---
 
@@ -46,7 +46,7 @@ The human cannot paste long chat instructions into you. This GitHub page is the 
 
 | # | Todo | Owner | Done when |
 | --- | --- | --- | --- |
-| **T1** | Confirm extension is **1.0.16** + **Reload Window** | Human + Copilot | Version verified |
+| **T1** | Confirm extension is **1.0.17** + **Reload Window** | Human + Copilot | Version verified |
 | **T2** | Check staging **entry URL** health (app HTML vs 404 / `NoSuchKey`) in a normal browser | Human (Copilot records) | Q1 answered |
 | **T3** | Flow package chosen + active env = staging (or agreed remote) + auth profile saved | Human | Panel shows env + auth |
 | **T4** | **Diagnose Node & Playwright** → PASS (Gate 1) | Human or Copilot | Output excerpt |
@@ -58,7 +58,7 @@ The human cannot paste long chat instructions into you. This GitHub page is the 
 
 **Not your todo:** Expand-all fixes, world-class wizard, sidebar redesign, Chrome/Figma, sauce-demo as Gate 3 substitute, vendor-repo coding, naming any customer org/repo/hostname in reports (use **example** / generic labels only).
 
-**Feature freeze:** **ON** after 1.0.16 — no Marketplace bump until Gate 3 PASS or a new written waive.
+**Feature freeze:** **ON** after 1.0.17 — no Marketplace bump until Gate 3 PASS or a new written waive.
 
 ---
 
@@ -88,7 +88,7 @@ The human cannot paste long chat instructions into you. This GitHub page is the 
 Copy this checklist into the Copilot chat on the **customer monorepo** laptop. Check off together.
 
 ### Step 0 — Install
-1. Extensions → **A11y Studio** → **1.0.16**.
+1. Extensions → **A11y Studio** → **1.0.17**.
 2. Command Palette → **Developer: Reload Window**.
 3. Confirm version on the Extensions detail page.
 
@@ -152,35 +152,35 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 
 ## Document revision
 
-**Document revision:** **2026-07-24T00:30Z** · **Supersedes all earlier versions of this URL**  
+**Document revision:** **2026-07-23T23:45Z** · **Supersedes all earlier versions of this URL**  
 **GitHub:** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 **Canonical raw:** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
 **Cache-bust (pinned commit):** https://cdn.jsdelivr.net/gh/a11ystudio/media@ec4f637/docs/enterprise-adoption-laptop.md  
 
 | Field | Value |
 | --- | --- |
-| **This revision** | **2026-07-24T00:30Z** — floor **v1.0.16** LIVE; Gate 3 pair path; security neutral-copy; freeze ON (no Marketplace bump) |
-| **Marketplace floor** | **v1.0.16** LIVE (publisher hub confirmed) |
-| **Feature freeze** | **ON** after 1.0.16 — Gate 3 PASS or written waive before any publish |
+| **This revision** | **2026-07-23T23:45Z** — floor **v1.0.17** LIVE (waive — Copilot still on 1.0.15); Gate 3 pair path; security neutral-copy; freeze ON after ship |
+| **Marketplace floor** | **v1.0.17** LIVE (this-release-only waive for Gate 3 laptop floor) |
+| **Feature freeze** | **ON** after 1.0.17 — Gate 3 PASS or new waive before next publish |
 | **Copilot workspace** | **Customer monorepo only** — never the `a11y-studio` vendor repo |
 | **Naming** | Reports must stay **neutral** — no customer org, repo, hostname, or project codenames |
 
 ### How to read this page (anti-stale)
 
-1. Confirm **Document revision** is **2026-07-24T00:30Z** (or newer) and floor **v1.0.16**. If you see **v1.0.15** or older, refetch the **raw** GitHub URL (or a fresh jsDelivr pin after the human updates media).
+1. Confirm **Document revision** is **2026-07-23T23:45Z** (or newer) and floor **v1.0.17**. If you see **v1.0.16** / **v1.0.15** or older, refetch the **raw** GitHub URL (or a fresh jsDelivr pin after the human updates media).
 2. Only sections marked **CURRENT** are actionable. **YOUR TODO NOW** + **GATE 3 PATH** are the priority.
 3. Sections marked **HISTORICAL** are context only.
 4. If two bullets disagree, the **newer dated** block wins.
 
 ### Install (CURRENT)
 
-**Extension:** Marketplace **`a11ystudio.a11y-studio` `1.0.16`**
+**Extension:** Marketplace **`a11ystudio.a11y-studio` `1.0.17`**
 
-1. Extensions → A11y Studio → update to **1.0.16**.
+1. Extensions → A11y Studio → update to **1.0.17**.
 2. **Developer: Reload Window**.
 3. Confirm version in Extensions detail.
 
-### Shipped in 1.0.16 (exercise on this laptop)
+### Shipped in 1.0.17 (exercise on this laptop — includes 1.0.16)
 
 | Item | Why it matters |
 | --- | --- |
@@ -200,7 +200,7 @@ Do **not** use public sauce-demo as a Gate 3 substitute for this adoption repo.
 ### CURRENT (2026-07-23) — Copilot report block (fill and return)
 
 ```
-Extension version installed: ______ (must be 1.0.16+)
+Extension version installed: ______ (must be 1.0.17+)
 Reload Window done: yes / no
 Pair run with human: yes / no
 Flow package chosen: yes / no
@@ -225,4 +225,4 @@ Notes (neutral — no org/repo/host names): ______
 
 ### HISTORICAL — prior floors
 
-Earlier briefs targeted **1.0.11–1.0.15**. Prefer **1.0.16** for all new runs. Prior TODO tables without the Gate 3 PATH are obsolete.
+Earlier briefs targeted **1.0.11–1.0.15**. Prefer **1.0.17** for all new runs (skip 1.0.15/1.0.16). Prior TODO tables without the Gate 3 PATH are obsolete.
