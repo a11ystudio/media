@@ -32,6 +32,7 @@ This brief is **pair-run protocol for one adoption laptop session**. Env keys be
 | **Floor** | Marketplace **1.0.18** LIVE — HOT F1–F9 (auth path, TLS ignoreHTTPSErrors, AST checkpoint, env-prefix filter, Verify row, etc.) |
 | **Freeze** | **ON** until laptop Gates **(a)** + **(b)** PASS on **1.0.18** (or a new written waive) |
 | **Your job** | Pair run on the **customer monorepo** laptop only — not the vendor `a11y-studio` repo |
+| **wcag-map.json** | **Not required in the customer repo.** The Marketplace extension **bundles** `wcag-map.json`. Missing `assets/wcag-map.json` under the Flow package is **OK** — do not treat it as a Gate FAIL or ask the vendor for the file. Optional project copy is only an overlay. |
 | **Healthy env (this session)** | Human designates. **For this laptop run:** env key **`qa`**. If human says **`staging`** is dead → do not select it |
 | **Also exercise** | Env key **`local`** (or human’s local-flow equivalent) for Gate **(b)** filter proof |
 | **Record flow** | **Not required** for these gates |
@@ -69,7 +70,7 @@ This brief is **pair-run protocol for one adoption laptop session**. Env keys be
 | **T8** | **Skip Expand all** — known FAIL; do not block | Both | Noted skipped |
 | **T9** | If URL unhealthy → **stop**; report env **kind** only | Both | Stopped cleanly |
 
-**Not your todo:** Expand-all fixes, VSIX install, vendor-repo coding, naming any customer org/repo/hostname in reports.
+**Not your todo:** Expand-all fixes, VSIX install, vendor-repo coding, copying `wcag-map.json` into the customer repo, naming any customer org/repo/hostname in reports.
 
 **Feature freeze:** **ON** after 1.0.18 — no Marketplace bump until Gates (a)+(b) PASS or a new written waive.
 
