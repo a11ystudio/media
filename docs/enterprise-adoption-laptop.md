@@ -1,12 +1,14 @@
 # A11y Studio — enterprise adopt-existing laptop brief
 
-## COPILOT — OPEN THIS URL (CURRENT 2026-07-24)
+## COPILOT — OPEN THIS URL (CURRENT 2026-08-03)
 
 **GitHub (read here):** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 
 **Raw (fetch / paste):** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
 
-**Cache-bust fetch (prefer if page looks old):** https://cdn.jsdelivr.net/gh/a11ystudio/media@b4f0ac1/docs/enterprise-adoption-laptop.md
+**Cache-bust fetch (prefer if page looks old):** https://cdn.jsdelivr.net/gh/a11ystudio/media@main/docs/enterprise-adoption-laptop.md  
+
+**Do not change this URL.** If the page still says **1.0.18** / **1.0.19** / Gates (a)+(b) as the current todo, hard-refresh or use the raw / cache-bust link — this file was updated for **1.0.23**.
 
 The human cannot paste long chat instructions into you. This GitHub page is the vendor's message to you **and** the shared script for **human + Copilot pair testing**.
 
@@ -16,11 +18,11 @@ The human cannot paste long chat instructions into you. This GitHub page is the 
 
 This brief is **pair-run protocol for one adoption laptop session**. Env keys below are **human-designated for this run only** — not product defaults.
 
-**Install Marketplace `a11ystudio.a11y-studio` `1.0.18` only, then Reload Window**, before any Gate retest. Do **not** keep testing on **1.0.17**, **1.0.16**, or earlier — skip straight to **1.0.18**.
+**Install Marketplace `a11ystudio.a11y-studio` `1.0.23` only, then Reload Window**, before this smoke. Do **not** keep testing on **≤1.0.22** — skip straight to **1.0.23**.
 
 ### Client constraint (non-negotiable)
 
-- **Marketplace only** — Extensions → A11y Studio → **1.0.18**. No VSIX sideload. No vendor-repo files. No build-from-main.
+- **Marketplace only** — Extensions → A11y Studio → **1.0.23**. No VSIX sideload. No vendor-repo files. No build-from-main.
 - Never write customer **org**, **repo**, **hostname**, **URL**, or **person** names in chat, Output excerpts, or the report block.
 - Use only generic env **kinds** the human confirms (`local` / `qa` / `staging` / `other`), `app HTML` / `404` / `NoSuchKey`, generic path shapes (`tests/a11y/.auth/<profile>.json`).
 - Never paste secrets, tokens, or storageState contents.
@@ -29,15 +31,13 @@ This brief is **pair-run protocol for one adoption laptop session**. Env keys be
 
 | Fact | Meaning for you |
 | --- | --- |
-| **Floor** | Marketplace **1.0.18** LIVE — HOT F1–F9 (auth path, TLS ignoreHTTPSErrors, AST checkpoint, env-prefix filter, Verify row, etc.) |
-| **Freeze** | **ON** until laptop Gates **(a)** + **(b)** PASS on **1.0.18** (or a new written waive) |
+| **Floor** | Marketplace **1.0.23** LIVE — prove **P1-06** keyboard Tab journey (Section **A**) |
+| **Already CLOSED** | Gate **(a)** known-violation honesty · Gate **(b)** multi-env Run all deny-mismatch (**PASSED** on ≥1.0.21) — **do not** re-prove as the main todo |
 | **Your job** | Pair run on the **customer monorepo** laptop only — not the vendor `a11y-studio` repo |
-| **wcag-map.json** | **Not required in the customer repo.** The Marketplace extension **bundles** `wcag-map.json`. Missing `assets/wcag-map.json` under the Flow package is **OK** — do not treat it as a Gate FAIL or ask the vendor for the file. Optional project copy is only an overlay. |
-| **Healthy env (this session)** | Human designates. **For this laptop run:** env key **`qa`**. If human says **`staging`** is dead → do not select it |
-| **Also exercise** | Env key **`local`** (or human’s local-flow equivalent) for Gate **(b)** filter proof |
-| **Record flow** | **Not required** for these gates |
-| **Highest-risk step** | **Auth / `.auth` / `storageState` path** (must resolve under Flow package) |
-| **Do not claim** | “Gate 3 DoD” or “catches violations verified” until **(a)** and **(b)** both PASS |
+| **wcag-map.json** | **Not required in the customer repo.** Bundled in the Marketplace extension. |
+| **Auth profile selected** | Injects Playwright **`storageState`** (saved cookies/session) — it does **not** type username/password into login form steps in a recorded spec |
+| **Record flow** | **Not required** for Section A |
+| **Do not claim** | “1.0.23 laptop-validated” or adopt-ready until **Section A overall: PASS** |
 
 ---
 
@@ -45,104 +45,95 @@ This brief is **pair-run protocol for one adoption laptop session**. Env keys be
 
 | Role | Does |
 | --- | --- |
-| **Human** | Clicks panel rows, Setup auth (headed login / MFA), confirms URL in a browser, reads Output with Copilot |
-| **Copilot** | Runs Command Palette commands when allowed, reads Output / `{ ok, gates }` / support bundle, fills the report block, **never** pastes secrets, org, repo, or hostnames |
-| **Together** | Walk **GATE PATH** below; stop on red URL; escalate with support bundle |
+| **Human** | Clicks panel rows, confirms URL in a browser, inserts/edits journey labels, reads Output with Copilot |
+| **Copilot** | Confirms version **1.0.23**, guides GATE PATH, fills the report block, **never** pastes secrets, org, repo, or hostnames |
+| **Together** | Finish **Section A** first; optional **Section B** after; stop on red URL |
 
 **Goal (this revision):**
 
-- **Gate (a)** — Known-violation fixture / scan path shows **≥1** finding (not hollow PASS).
-- **Gate (b)** — Flow runs with env-prefix filter: **`qa`** (+ auth) and **`local`** (or local-flow) — unrelated env specs skipped; no wrong-env URL storm.
+- **Section A (required)** — `keyboardTabJourney`: correct labels **pass**; wrong labels **fail** (not hollow green); optional focus trap.
+- **Section B (optional catch-up)** — P1-11 panel friction checks (Confluence path, CLI vendor honesty, Why on disabled chips, ENV-FALLBACK).
 
 ---
 
-### YOUR TODO NOW (2026-07-24) — Marketplace **1.0.18** · Gates (a)+(b)
+### YOUR TODO NOW (2026-08-03) — Marketplace **1.0.23** · Section A first
 
 | # | Todo | Owner | Done when |
 | --- | --- | --- | --- |
-| **T1** | Confirm extension is **1.0.18** + **Reload Window** | Human + Copilot | Version verified — **not** 1.0.17 |
-| **T2** | Check healthy env entry URL (human: **`qa`**) — app HTML vs 404 / `NoSuchKey`. Skip dead envs (here: **`staging`**) | Human (Copilot records) | Q1 answered |
-| **T3** | Flow package chosen + active env + auth profile for that env | Human | Panel shows env + auth |
-| **T4** | **Diagnose Node & Playwright** → PASS | Human or Copilot | Output excerpt |
-| **T5** | **Gate (a)** — known-violation path → **≥1 finding** | Human + Copilot | Count ≥1 recorded |
-| **T6** | **Gate (b)** — Run flow / Guided adoption on **`qa`**, then **`local`** (filtered) | Human + Copilot | Filter behavior confirmed |
-| **T7** | Write **support bundle** after run or on FAIL | Copilot / Human | Path reported |
-| **T8** | **Skip Expand all** — known FAIL; do not block | Both | Noted skipped |
-| **T9** | If URL unhealthy → **stop**; report env **kind** only | Both | Stopped cleanly |
+| **T1** | Confirm extension is **1.0.23** + **Reload Window** | Human + Copilot | Version verified — **not** ≤1.0.22 |
+| **T2** | Flow package chosen; trusted workspace; healthy env URL (human designates) | Human | App HTML (not 404 / `NoSuchKey`) |
+| **T3** | **Section A1** — insert `keyboard-tab-journey` pack **or** `A11yStudioChecks.keyboardTabJourney([…])` with labels matching live focus | Human + Copilot | API present on 1.0.23 |
+| **T4** | **Section A2** — Run with **correct** labels → must **PASS** | Human + Copilot | Journey green |
+| **T5** | **Section A3** — Wrong one label / swap order → must **FAIL** (hollow green = FAIL) | Human + Copilot | Journey fails |
+| **T6** | **Section A4** (if dialog available) — `focusTrapActive` Tab + Shift+Tab | Human + Copilot | PASS or SKIP with reason |
+| **T7** | Fill **report block** below → return to vendor / paste conclusions | Copilot | Section A overall decided |
+| **T8** | Optional **Section B** (P1-11 catch-up) only after A | Both | PARTIAL OK |
 
-**Not your todo:** Expand-all fixes, VSIX install, vendor-repo coding, copying `wcag-map.json` into the customer repo, naming any customer org/repo/hostname in reports.
+**Not your todo:** Re-running Gate (a)/(b) as the primary smoke · Expand-all fixes · VSIX · vendor-repo coding · naming customer org/repo/hostname · treat login-form timeouts in unrelated qa specs as this smoke.
 
-**Feature freeze:** **ON** after 1.0.18 — no Marketplace bump until Gates (a)+(b) PASS or a new written waive.
+**Adopt messaging:** **OFF** until human/maintainer promotes after **Section A PASS**.
 
 ---
 
-## CURRENT — Run modes (read once, then ignore)
+## CURRENT — Auth reminder (read once)
 
-**Choose run mode…** is three shortcuts. For Gate (b) you typically want **Guided adoption** or **Audit only**.
+Selecting an **auth profile** in the panel = use this **`storageState`** file for the run.
 
-| Mode | What it runs | Use when |
-| --- | --- | --- |
-| **Guided adoption (Section B)** | Diagnose → find specs → **Run all flow tests** | Default laptop flow path |
-| **Audit only** | Run all flow tests only | Diagnose already green |
-| **Audit + Confluence publish** | Run all, then Confluence publish | After flow PASS + publish configured |
-
-| Gate | Meaning |
-| --- | --- |
-| **1** | Diagnose — Node + Playwright ready |
-| **2** | Runnable Flow specs discovered (not only `*.setup.spec.ts`) |
-| **3** | **Run all flow tests** succeeded (legacy Section B label) |
-| **(a)** | Known-violation → **≥1 finding** ← **required this revision** |
-| **(b)** | Env-prefix filter on **`qa`** + **`local`** ← **required this revision** |
-| Record | SKIPPED — out of scope |
+It does **not** fill Username/Password fields if the **spec itself** clicks login controls. Session missing/stale/wrong-env → app shows login again. Prefer journeys that start **after** login via storageState, or a dedicated auth-setup recording.
 
 ---
 
 ## CURRENT — GATE PATH (do in order)
 
-Copy this checklist into the Copilot chat on the **customer monorepo** laptop. Check off together.
-
 ### Step 0 — Install (Marketplace only)
-1. Extensions → **A11y Studio** → **1.0.18** (Marketplace — **no VSIX**).
+
+1. Extensions → **A11y Studio** → **1.0.23** (Marketplace — **no VSIX**).
 2. Command Palette → **Developer: Reload Window**.
-3. Confirm version on the Extensions detail page — must say **1.0.18**.
+3. Confirm version on the Extensions detail page — must say **1.0.23**.
 
 ### Step 1 — Open Flow Runner
+
 1. Activity Bar → **A11y Studio** → **Flow Runner**.
 2. **Choose Flow package** = folder that owns `a11y-studio.json` and Flow specs.
 3. Confirm panel shows Playwright / Diagnose / Verify rows (plumbing).
 
 ### Step 2 — URL health (hard stop if red)
-1. Ask the human: **which Flow environment key is healthy?** On **this** laptop session: **`qa`**.
-2. Select that environment. **Do not** select keys the human marked dead (here: **`staging`**).
+
+1. Ask the human which Flow environment key is healthy for **this** session.
+2. Select that environment. Skip keys the human marked dead.
 3. Human opens the **same entry URL** in Chrome/Edge.
 4. Verdict: **App HTML** → continue. **404** / **NoSuchKey** → **STOP**.
 5. Copilot records only: env kind + health — **no hostname**.
 
-### Step 3 — Auth (highest-risk FAIL)
-1. Under **Auth**, select or **Add auth profile** for the healthy env (this session: **`qa`**).
-2. Human completes **Setup auth** / Save auth state (MFA if needed).
-3. Confirm file under Flow package: `tests/a11y/.auth/<profile>.json` (or configured testDir `.auth/`).
-4. If Output says `storageState` / `.auth` **ENOENT** → re-run Setup auth; do not invent paths.
+### Step 3 — Section A (P1-06 keyboard journey) — **required**
 
-### Step 4 — Diagnose
-1. Run **Diagnose Node & Playwright**.
-2. Output → **A11y Studio** — need **PASS**.
+1. Page with a clear Tab order (example labels: Email → Password → Sign in) **or** a dialog for trap.
+2. Insert checkpoint pack **`keyboard-tab-journey`**, or:
 
-### Step 5 — Gate (a) known-violation (≥1 finding)
-1. Human opens / runs the **known-violation** fixture or scan path they use for this adoption.
-2. Copilot confirms Output / Problems / report shows **at least one** accessibility finding.
-3. **0 findings = FAIL** for Gate (a) — do not call it verified.
+```ts
+await A11yStudioChecks.keyboardTabJourney(["Email", "Password", "Sign in"]);
+// labels = substrings of live focus announcements — adjust to the app
+```
 
-### Step 6 — Gate (b) env-prefix filter (`qa` + `local`)
-1. Active env = **`qa`** (+ auth). Run **Guided adoption** or **Run all flow tests**.
-2. Confirm unrelated env specs are skipped (no wrong-env URL storm).
-3. Switch to **`local`** (or human’s local-flow key). Re-run. Confirm filter again.
-4. Copilot copies machine result / Output excerpt into the report — **neutral** wording only.
-5. **Skip Expand all**.
+3. **A2** Run with **correct** labels → must **pass**.
+4. **A3** Change one label to nonsense **or** swap order → must **fail** (not hollow green).
+5. **A4** (optional) Open a dialog; `A11yStudioChecks.focusTrapActive('<selector>')` — Tab and Shift+Tab stay inside.
 
-### Step 7 — Evidence
-1. **Write support bundle…** → `.a11y-studio/support-bundle.json` (no secrets).
-2. Fill **Copilot report block** below and return it to the vendor chat / human.
+**Section A overall = PASS** only if A1–A3 are PASS (A4 may SKIP if no dialog — say why).
+
+### Step 4 — Section B (optional, after A)
+
+| # | Check | Pass when |
+| --- | --- | --- |
+| B1 | Confluence Connect → mapping → Publish | Panel path works (no peer Settings trap) |
+| B2 | VSIX-vendored Studio CLI | No false “install public npm `@a11ystudio/cli`” |
+| B3 | Disabled Flow/Reports actions | Inline **Why · …** (not hover-only) |
+| B4 | Named env with **no** URL | No silent localhost inherit; Run/Record gated with reason |
+
+### Step 5 — Evidence
+
+1. Fill **Copilot report block** below.
+2. Prefer also commenting the same templates on vendor issue [#303](https://github.com/a11ystudio/a11y-studio/issues/303) if the human has access — **this media URL stays the Copilot bookmark**.
 
 ---
 
@@ -150,12 +141,12 @@ Copy this checklist into the Copilot chat on the **customer monorepo** laptop. C
 
 | Output signal | Owner | Next action |
 | --- | --- | --- |
-| Still on **1.0.17** or older | **install** | Update Marketplace to **1.0.18** + Reload — retest invalid until then |
+| Still on **≤1.0.22** | **install** | Update Marketplace to **1.0.23** + Reload — retest invalid until then |
+| Brief still says **1.0.18** / Gates (a)+(b) as current | **stale cache** | Refetch raw / cache-bust URL above |
 | URL / 404 / `NoSuchKey` | **environment** | Stop; env owners fix URL |
-| `storageState` / `.auth` ENOENT | **repo / human** | Setup auth again under Flow package |
-| Playwright / Node / Chromium / PATH | **laptop** | Diagnose `firstAction` |
-| Gate (a) = 0 findings | **product / fixture** | Escalate with support bundle — hollow PASS |
-| Wrong-env URL storm | **product** | Escalate — env-prefix filter not applied |
+| `keyboardTabJourney` missing | **install / version** | Not on 1.0.23 — update extension |
+| A3 still **passes** with wrong labels | **product** | Hollow success — escalate (blocker) |
+| Spec timeout on login `getByTestId` / username | **spec / app** | Not Section A — fix journey or storageState; don’t call smoke FAIL for unrelated locator rot |
 | Expand all broken | **vendor-roadmap** | Skip |
 
 Do **not** use public sauce-demo as a substitute for this adoption repo.
@@ -164,76 +155,80 @@ Do **not** use public sauce-demo as a substitute for this adoption repo.
 
 ## Document revision
 
-**Document revision:** **2026-07-24** · **Supersedes all earlier versions of this URL**  
+**Document revision:** **2026-08-03** · **Supersedes all earlier versions of this URL**  
 **GitHub:** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 **Canonical raw:** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
 
 | Field | Value |
 | --- | --- |
-| **This revision** | **2026-07-24** — Marketplace **1.0.18**; Gates **(a)** + **(b)**; Marketplace-only client |
-| **Marketplace floor** | **v1.0.18** LIVE |
-| **Feature freeze** | **ON** until (a)+(b) PASS or new waive |
+| **This revision** | **2026-08-03** — Marketplace **1.0.23**; Section **A** (P1-06) required; Section **B** optional |
+| **Marketplace floor** | **v1.0.23** LIVE |
 | **Copilot workspace** | **Customer monorepo only** |
 | **Naming** | Reports stay **neutral** — no customer org, repo, hostname, or project codenames |
+| **URL** | **Unchanged** — same media path Copilot already bookmarks |
 
 ### How to read this page (anti-stale)
 
-1. Confirm **Document revision** is **2026-07-24** (or newer) and floor **v1.0.18**. If brief still says **1.0.17**, refetch raw URL (hard refresh / cache-bust).
+1. Confirm **Document revision** is **2026-08-03** (or newer) and floor **v1.0.23**. If brief still says **1.0.18** / **1.0.19**, refetch raw URL (hard refresh / cache-bust).
 2. Only sections marked **CURRENT** are actionable. **YOUR TODO NOW** + **GATE PATH** are the priority.
 3. Sections marked **HISTORICAL** are context only.
 4. If two bullets disagree, the **newer dated** block wins.
 
 ### Install (CURRENT)
 
-**Extension:** Marketplace **`a11ystudio.a11y-studio` `1.0.18`**
+**Extension:** Marketplace **`a11ystudio.a11y-studio` `1.0.23`**
 
-1. Extensions → A11y Studio → update to **1.0.18**.
+1. Extensions → A11y Studio → update to **1.0.23**.
 2. **Developer: Reload Window**.
 3. Confirm version in Extensions detail.
 
-### Shipped in 1.0.18 (exercise on this laptop)
+### Shipped focus for this laptop (1.0.23)
 
 | Item | Why it matters |
 | --- | --- |
-| **storageState flow-package-relative** | Auth path resolves under Flow package (HOT F1) |
-| **ignoreHTTPSErrors URL health** | TLS / cert edge cases don’t false-stop health (F2) |
-| **AST checkpoint insert** | Known-violation / checkpoint path not hollow (F3) |
-| **Env-prefix filter** | `qa` / `local-flow` style basenames skip wrong env (F4) |
-| **Verify row / Record auth notice** | Panel clarity (F5–F6) |
-| **Support bundle envs + Confluence token alias** | Escalation / publish (F7–F9) |
+| **`keyboardTabJourney`** | Live Tab order vs expected labels (P1-06) |
+| **`focusTrapActive`** | Tab + Shift+Tab stay in dialog |
+| **Env filter (already LIVE)** | Untagged + matching env run; wrong-env skipped on Run all — Gate (b) closed; not the primary todo |
 
-### Known deferred
+### Known deferred / out of scope
 
 | Item | Status |
 | --- | --- |
-| **Expand all** on Flow Runner | Known FAIL — **skip** (**T8**); vendor later |
+| Re-prove Gate (a)/(b) as main smoke | **CLOSED** — optional sanity only |
+| Expand all | Skip if broken |
+| L3 visual · Figma · Docker product · adopt media | HOLD until Section A PASS + maintainer promote |
 
-### CURRENT (2026-07-24) — Copilot report block (fill and return)
+### CURRENT (2026-08-03) — Copilot report block (fill and return)
 
 ```
-Extension version installed: ______ (must be 1.0.18 — Marketplace only, no VSIX)
+### 1.0.23 smoke A — P1-06
+Extension version installed: ______ (must be 1.0.23 — Marketplace only, no VSIX)
 Reload Window done: yes / no
 Pair run with human: yes / no
 Flow package chosen: yes / no
-Active env kind (human-designated): qa / local / staging / other (no hostname)
+Active env kind (human-designated): local / qa / staging / other (no hostname)
 Healthy env entry URL health: app HTML / 404 / NoSuchKey / other: ______
-Auth profile saved for that env (.auth file present): yes / no / n/a
-Diagnose: PASS / FAIL — firstAction if any: ______
-Gate (a) known-violation findings count: ______ (≥1 required)
-Gate (b) env filter on qa: PASS / FAIL / SKIPPED — notes: ______
-Gate (b) env filter on local: PASS / FAIL / SKIPPED — notes: ______
-Paste { ok, gates } or Output excerpt (neutral):
+A1 API present (keyboardTabJourney): PASS | FAIL — …
+A2 correct labels pass: PASS | FAIL — …
+A3 wrong labels fail (not hollow): PASS | FAIL — …
+A4 focus trap Tab+Shift+Tab: PASS | FAIL | SKIP — …
+**Section A overall: PASS | FAIL**
+Notes / Output excerpt (neutral — no org/repo/host names):
 ______
-Support bundle path: ______
-Expand all: SKIPPED (known FAIL)
-Record flow: SKIPPED (not required)
-Notes (neutral — no org/repo/host names): ______
+
+### 1.0.23 smoke B — P1-11 catch-up (optional)
+B1 Confluence Connect→Publish: PASS | FAIL | SKIP — …
+B2 CLI vendor honesty: PASS | FAIL | SKIP — …
+B3 Why on disabled chips: PASS | FAIL | SKIP — …
+B4 ENV-FALLBACK URL honesty: PASS | FAIL | SKIP — …
+**Section B overall: PASS | FAIL | PARTIAL | SKIPPED**
+Notes (neutral): ______
 ```
 
 ### What Copilot says to the human at start of session
 
-> Open this brief (GitHub or raw link). Install Marketplace **1.0.18** only (no VSIX), Reload Window. For **this** pair run the healthy env is **`qa`** (skip **`staging`** if dead). We need Gate **(a)** ≥1 finding and Gate **(b)** env filter on **`qa`** + **`local`**. You click auth and confirm the URL; I read Output and fill the report block. We stop if the URL is not app HTML. We skip Expand all.
+> Open this brief (same GitHub/raw link you already use). Install Marketplace **1.0.23** only (no VSIX), Reload Window, confirm version. We do **Section A** first: keyboard Tab journey — correct labels pass, wrong labels must fail. Gates (a)/(b) are already closed — do not make them the main todo. You click; I read Output and fill the report block. We stop if the URL is not app HTML.
 
 ### HISTORICAL — prior floors
 
-Earlier briefs targeted **1.0.11–1.0.17**. Prefer **1.0.18** for all new runs. Prior TODO tables that only mention Gate 3 without Gates **(a)**/**(b)** are obsolete for this adoption session.
+Earlier briefs targeted **1.0.11–1.0.22** and Gates **(a)**/**(b)**. Prefer **1.0.23** + **Section A** for all new runs. Prior TODO tables that only mention Gate 3 or 1.0.18/1.0.19 as current are obsolete for this adoption session.
