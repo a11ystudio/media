@@ -37,6 +37,8 @@ This brief is **pair-run protocol for one adoption laptop session**. Env keys be
 | **wcag-map.json** | **Not required in the customer repo.** Bundled in the Marketplace extension. |
 | **Auth profile selected** | Injects Playwright **`storageState`** (saved cookies/session) — it does **not** type username/password into login form steps in a recorded spec |
 | **Record flow** | **Not required** for Section A |
+| **Tab during Record** | **Does nothing useful** — Playwright codegen does **not** write `keyboard.press('Tab')`. Focus outline during record ≠ keyboard coverage in the spec. Use **Add checkpoint → Keyboard Tab journey (live)** (or paste the Section A `customChecks` pattern). |
+| **“Stopped halfway”** | Either (1) unclean stop → partial codegen file, or (2) full spec + brittle locator timeout on **Run**. Not proof that Tab-recording “almost worked.” |
 | **Do not claim** | “1.0.24 laptop-validated” or adopt-ready until **Section A overall: PASS** |
 
 ---
@@ -127,7 +129,9 @@ It does **not** fill Username/Password fields if the **spec itself** clicks logi
 
 ### Step 3 — Section A (keyboard journey) — **required gate**
 
-1. Page with a clear Tab order. Labels must match **live focus announcements** (human reads focus with Tab once; Copilot helps phrase tokens).
+**Anti-pattern:** Do **not** spend the session on **Record flow** hoping Tab/outline appears in the spec. Codegen will not emit those steps. Section A proves **`keyboardTabJourney` at run time**, not recorder fidelity.
+
+1. Page with a clear Tab order. Labels must match **live focus announcements** (human reads focus with Tab once in a normal browser; Copilot helps phrase tokens).
 2. Insert checkpoint pack **`keyboard-tab-journey`**, **or** use this **only** pattern:
 
 ```ts
