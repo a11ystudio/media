@@ -10,6 +10,9 @@
 
 **Do not change this URL.** If the page still says **1.0.23** / **1.0.22** / Gates (a)+(b) as the current todo, hard-refresh or use the raw / cache-bust link — this file was updated for **1.0.24**.
 
+**Human → Copilot (paste this):**  
+> Open and re-read https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md (hard-refresh or raw/jsDelivr if stale). Install Marketplace **1.0.24** only, Reload Window, confirm version. Findings **1–6** are **CLOSED on 1.0.24** — do not re-list them as open blockers. Section A gate: `keyboardTabJourney` via `customChecks`; A2 pass / A3 fail; L2; badge. Do **not** use Record flow Tab for Section A. If a checkpoint URL host ≠ env `baseUrl` host, treat the run as **INVALID** (auth/nav) until re-run on the correct origin.
+
 The human cannot paste long chat instructions into you. This GitHub page is the vendor's message to you **and** the shared script for **human + Copilot pair testing**.
 
 ### World product — not one client (read first)
@@ -63,6 +66,7 @@ This brief is **pair-run protocol for one adoption laptop session**. Env keys be
 | # | Todo | Owner | Done when |
 | --- | --- | --- | --- |
 | **T1** | Confirm extension is **1.0.24** + **Reload Window** | Human + Copilot | Version verified — **not** ≤1.0.23 |
+| **T1b** | Copilot re-reads this GitHub brief (same URL) after hard-refresh | Copilot | Brief shows **1.0.24** / Section A / Record≠Tab — not stale 1.0.23 findings list |
 | **T2** | Flow package chosen; trusted workspace; healthy env URL (human designates) | Human | App HTML (not 404 / `NoSuchKey`) |
 | **T3** | **A1** — API present; use **`customChecks: [A11yStudioChecks.keyboardTabJourney([...])]`** inside `checkA11y` options (never as 2nd arg alone) | Human + Copilot | No opaque `replace` crash; clear error if API misused |
 | **T4** | **A2** — Run with **correct** focus labels → must **PASS** | Human + Copilot | Journey green; L1 axe may pass; L2 may pass or N/A if no contract |
@@ -193,6 +197,9 @@ await checkA11y(page, A11yStudioChecks.keyboardTabJourney(['…']), context);
 | L2 shows `— skip` but findings exist | **product** | Escalate (1.0.24 should map keyboard customs to L2) |
 | Badge → “Could not open Flow Runner” | **product** | Escalate (fixed on 1.0.24 — retest after update) |
 | Spec timeout on login `getByTestId` / username | **spec / app** | Not Section A — fix journey or storageState |
+| Checkpoint URL host ≠ env `baseUrl` (e.g. public `www.*` while env is `local.*`) | **session / product** | Treat run **INVALID** — re-save auth, re-run A2/A3; Marketplace **≥1.0.25** will badge URL-origin mismatch (shipping). Until then: check `latest.json` checkpoint `url` vs provenance `baseUrl` |
+| Findings **1–6** listed as open while on **1.0.24** | **stale Copilot memory** | Re-read this brief — those are **CLOSED on 1.0.24** |
+| Record flow / Tab presses / `test('test')` | **not Section A** | Record≠keyboard; use Add checkpoint journey for A |
 | Expand all broken | **vendor-roadmap** | Skip |
 
 Do **not** use public sauce-demo as a substitute for this adoption repo.
