@@ -7,6 +7,7 @@
 **Raw (fetch / paste):** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
 
 **Cache-bust fetch (prefer if page looks old):** https://cdn.jsdelivr.net/gh/a11ystudio/media@main/docs/enterprise-adoption-laptop.md  
+**This revision (pinned):** https://cdn.jsdelivr.net/gh/a11ystudio/media@d0c3c6e8ad1f2cdbf924cf7671b7cbebce9c5e91/docs/enterprise-adoption-laptop.md  
 
 **Do not change this URL.** If the page still says **1.0.23** / **1.0.22** / Gates (a)+(b) as the current todo, hard-refresh or use the raw / cache-bust link — this file was updated for **1.0.24**.
 
