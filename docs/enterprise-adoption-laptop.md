@@ -1,6 +1,6 @@
-# A11y Studio — enterprise adopt-existing laptop brief
+# A11y Studio — Copilot brief (laptop + vendor)
 
-## COPILOT — OPEN THIS URL (CURRENT 2026-08-04)
+## COPILOT — OPEN THIS URL (CURRENT 2026-08-19)
 
 **GitHub (read here):** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 
@@ -8,24 +8,54 @@
 
 **Cache-bust fetch (prefer if page looks old):** https://cdn.jsdelivr.net/gh/a11ystudio/media@main/docs/enterprise-adoption-laptop.md  
 
-**Do not change this URL.** If the page still says **1.0.23** / **1.0.22** / Gates (a)+(b) as the current todo, hard-refresh or use the raw / cache-bust link — this file was updated for **1.0.24**.
+**Do not change this URL.** If the page still says **1.0.24** / **1.0.23** as the *current* floor, hard-refresh or use raw / jsDelivr — this file is **1.0.26**.
 
-**Human → Copilot (paste this):**  
-> Open and re-read https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md (hard-refresh or raw/jsDelivr if stale). Install Marketplace **1.0.24** only, Reload Window, confirm version. Findings **1–6** are **CLOSED on 1.0.24** — do not re-list them as open blockers. Section A gate: `keyboardTabJourney` via `customChecks`; A2 pass / A3 fail; L2; badge. Do **not** use Record flow Tab for Section A. If a checkpoint URL host ≠ env `baseUrl` host, treat the run as **INVALID** (auth/nav) until re-run on the correct origin.
+The human cannot paste long chat instructions. This page is the vendor message. **Pick Job A or Job B. Do not mix in one session.**
 
-The human cannot paste long chat instructions into you. This GitHub page is the vendor's message to you **and** the shared script for **human + Copilot pair testing**.
+### WHERE ARE YOU
+
+| You are… | Do **Job** |
+| --- | --- |
+| Corporate **laptop**, **customer** repo, Marketplace extension only | **A** — Section A + Flow HTML re-smoke. [#303](https://github.com/a11ystudio/a11y-studio/issues/303). **No** vendor-repo coding. |
+| Clone of **[a11ystudio/a11y-studio](https://github.com/a11ystudio/a11y-studio)** | **B** — Flow Runner + Playwright **specs** + **POLICY P2**. Unified HTML **report parked**. Do **not** edit `apps/chrome-extension/**`. |
+
+**Human → Copilot (laptop / Job A):**  
+> Re-read this GitHub brief (hard-refresh or raw if stale). Install Marketplace **1.0.26** only, Reload Window. Findings **1–6** are **CLOSED since 1.0.24**. Section A: `keyboardTabJourney` via `customChecks`; A2 pass / A3 fail; L2; badge. Also re-smoke **Flow HTML** on 1.0.26. Do **not** use Record Tab for Section A. Wrong origin host → run INVALID.
+
+**Human → Copilot (vendor repo / Job B):**  
+> You are in **a11ystudio/a11y-studio**. Read `AI-SNAPSHOT.md` + ledger **NOW**. Unified report / FUNC / CLAR / REPORT = **PARKED**. Chrome Wave-2 = other lane (`apps/chrome-extension/**` off-limits). Implement Flow Runner + spec reliability: **POLICY P2** (filter Problems/scan by `policy.standard` — picker already shipped #323), then Record/Run/spec bugs **only with a failing repro**. `feature/<topic>` from `main`; `pnpm run verify`; PR to `main`.
+
+---
+
+## JOB B — vendor repo (Flow Runner + specs)
+
+Use this only inside **github.com/a11ystudio/a11y-studio**.
+
+| Do | Don’t |
+| --- | --- |
+| `feature/` from `main`; tests; `pnpm run verify` | Unified HTML report redesign, 0–100 scores, ADA/508/EAA fake filters |
+| **POLICY P2** — apply `policy.standard` when listing/gating findings (`wcagLevel` + SC membership; AA includes A) | Invent EN/RGAA engines (P4 HOLD) |
+| Flow Record/Run: storageState cwd, spec codegen, overwrite warn (L5), brittle locators — **with a failing test or Output excerpt** | Touch `apps/chrome-extension/**` |
+| Neutral copy — no customer hostnames | Publish VSIX / bump Marketplace unless human said `publish vX.Y.Z` |
+| Update your COORDINATOR-BOARD **VS Code / Flow** row at session end | `@codebase` the whole monorepo; recap preflight §1–6 |
+
+Open work SSOT: [vscode-extension-implementation-ledger.md](https://github.com/a11ystudio/a11y-studio/blob/main/docs/specs/vscode-extension-implementation-ledger.md) **NOW**. Live pin: [AI-SNAPSHOT.md](https://github.com/a11ystudio/a11y-studio/blob/main/AI-SNAPSHOT.md).
+
+---
+
+## JOB A — adoption laptop (Marketplace only)
+
+Pair-run protocol. Env keys below are **human-designated for this run only** — not product defaults.
 
 ### World product — not one client (read first)
 
 **A11y Studio is a global product.** Named environments (`local`, `qa`, `staging`, `dev2`, …) come from **each repo’s** `a11y-studio.json` → `flowRunner.environments`. The product does **not** prefer any key. Marketplace behavior must stay valid for **any** team worldwide.
 
-This brief is **pair-run protocol for one adoption laptop session**. Env keys below are **human-designated for this run only** — not product defaults.
-
-**Install Marketplace `a11ystudio.a11y-studio` `1.0.24` only, then Reload Window**, before this smoke. Do **not** keep testing on **≤1.0.23** — skip straight to **1.0.24**.
+**Install Marketplace `a11ystudio.a11y-studio` `1.0.26` only, then Reload Window**, before this smoke. Do **not** keep testing on **≤1.0.25** — skip straight to **1.0.26**.
 
 ### Client constraint (non-negotiable)
 
-- **Marketplace only** — Extensions → A11y Studio → **1.0.24**. No VSIX sideload. No vendor-repo files. No build-from-main.
+- **Marketplace only** — Extensions → A11y Studio → **1.0.26**. No VSIX sideload. No vendor-repo files. No build-from-main.
 - Never write customer **org**, **repo**, **hostname**, **URL**, or **person** names in chat, Output excerpts, or the report block.
 - Use only generic env **kinds** the human confirms (`local` / `qa` / `staging` / `other`), `app HTML` / `404` / `NoSuchKey`, generic path shapes (`tests/a11y/.auth/<profile>.json`).
 - Never paste secrets, tokens, or storageState contents.
@@ -34,7 +64,7 @@ This brief is **pair-run protocol for one adoption laptop session**. Env keys be
 
 | Fact | Meaning for you |
 | --- | --- |
-| **Floor** | Marketplace **1.0.24** LIVE — re-prove **Section A** after vendor fixes (F1–F6 + `--project=`) |
+| **Floor** | Marketplace **1.0.26** LIVE — Section A + **Flow HTML re-smoke** ([#303](https://github.com/a11ystudio/a11y-studio/issues/303)) |
 | **Already CLOSED** | Gate **(a)** known-violation honesty · Gate **(b)** multi-env Run all deny-mismatch (**PASSED** on ≥1.0.21) — **do not** re-prove as the main todo |
 | **Your job** | Pair run on the **customer monorepo** laptop only — not the vendor `a11y-studio` repo |
 | **wcag-map.json** | **Not required in the customer repo.** Bundled in the Marketplace extension. |
@@ -42,7 +72,7 @@ This brief is **pair-run protocol for one adoption laptop session**. Env keys be
 | **Record flow** | **Not required** for Section A |
 | **Tab during Record** | **Does nothing useful** — Playwright codegen does **not** write `keyboard.press('Tab')`. Focus outline during record ≠ keyboard coverage in the spec. Use **Add checkpoint → Keyboard Tab journey (live)** (or paste the Section A `customChecks` pattern). |
 | **“Stopped halfway”** | Either (1) unclean stop → partial codegen file, or (2) full spec + brittle locator timeout on **Run**. Not proof that Tab-recording “almost worked.” |
-| **Do not claim** | “1.0.24 laptop-validated” or adopt-ready until **Section A overall: PASS** |
+| **Do not claim** | “1.0.26 laptop-validated” or adopt-ready until **Section A overall: PASS** |
 
 ---
 
@@ -51,7 +81,7 @@ This brief is **pair-run protocol for one adoption laptop session**. Env keys be
 | Role | Does |
 | --- | --- |
 | **Human** | Clicks panel rows, confirms URL in a browser, inserts/edits journey labels, reads Output with Copilot |
-| **Copilot** | Confirms version **1.0.24**, guides GATE PATH, fills the report block, **never** pastes secrets, org, repo, or hostnames |
+| **Copilot** | Confirms version **1.0.26**, guides GATE PATH, fills the report block, **never** pastes secrets, org, repo, or hostnames |
 | **Together** | Finish **Section A** first; optional **Section B** after; stop on red URL |
 
 **Goal (this revision):**
@@ -61,22 +91,23 @@ This brief is **pair-run protocol for one adoption laptop session**. Env keys be
 
 ---
 
-### YOUR TODO NOW (2026-08-04) — Marketplace **1.0.24** · Section A gate
+### YOUR TODO NOW (2026-08-19) — Marketplace **1.0.26** · Section A + Flow HTML
 
 | # | Todo | Owner | Done when |
 | --- | --- | --- | --- |
-| **T1** | Confirm extension is **1.0.24** + **Reload Window** | Human + Copilot | Version verified — **not** ≤1.0.23 |
-| **T1b** | Copilot re-reads this GitHub brief (same URL) after hard-refresh | Copilot | Brief shows **1.0.24** / Section A / Record≠Tab — not stale 1.0.23 findings list |
+| **T1** | Confirm extension is **1.0.26** + **Reload Window** | Human + Copilot | Version verified — **not** ≤1.0.25 |
+| **T1b** | Copilot re-reads this GitHub brief (same URL) after hard-refresh | Copilot | Brief shows **1.0.26** / Job A vs Job B — not stale 1.0.24-only |
 | **T2** | Flow package chosen; trusted workspace; healthy env URL (human designates) | Human | App HTML (not 404 / `NoSuchKey`) |
 | **T3** | **A1** — API present; use **`customChecks: [A11yStudioChecks.keyboardTabJourney([...])]`** inside `checkA11y` options (never as 2nd arg alone) | Human + Copilot | No opaque `replace` crash; clear error if API misused |
 | **T4** | **A2** — Run with **correct** focus labels → must **PASS** | Human + Copilot | Journey green; L1 axe may pass; L2 may pass or N/A if no contract |
 | **T5** | **A3** — Wrong labels / reversed order → must **FAIL** (hollow green = FAIL); HTML matrix **L2 = fail** | Human + Copilot | Violations in Problems + L2 fail in report |
 | **T6** | Click **“N flow violations”** status badge → Flow Runner panel opens (no “Could not open” / reload) | Human + Copilot | Panel opens |
 | **T7** | **A4** (if dialog available) — `focusTrapActive` Tab + Shift+Tab | Human + Copilot | PASS or SKIP with reason |
-| **T8** | Fill **report block** → return to vendor / [#303](https://github.com/a11ystudio/a11y-studio/issues/303) | Copilot | **Section A overall** decided |
+| **T8** | Fill **report block** → [#303](https://github.com/a11ystudio/a11y-studio/issues/303) | Copilot | **Section A overall** decided |
+| **T8b** | **Flow HTML re-smoke** on 1.0.26 (open latest HTML; transcript + findings present; not hollow 0-checkpoint pass) | Human + Copilot | Note PASS/FAIL on #303 |
 | **T9** | Optional **Section B** only after A | Both | PARTIAL OK |
 
-**Not your todo:** Re-running Gate (a)/(b) as the primary smoke · Expand-all · VSIX · vendor-repo coding · naming customer org/repo/hostname · treating unrelated locator timeouts as Section A FAIL.
+**Not your todo (Job A):** Re-running Gate (a)/(b) as the primary smoke · Expand-all · VSIX · vendor-repo coding · naming customer org/repo/hostname · treating unrelated locator timeouts as Section A FAIL. **Job B** is vendor-repo coding (separate session).
 
 **Adopt messaging:** **OFF** until human/maintainer promotes after **Section A PASS**.
 
@@ -86,7 +117,7 @@ This brief is **pair-run protocol for one adoption laptop session**. Env keys be
 
 **Section A overall = PASS** (and the gate may close) **only if all of the following are true:**
 
-1. Extension details show **1.0.24** (Marketplace, after Reload).
+1. Extension details show **1.0.26** (Marketplace, after Reload).
 2. **A1** — `keyboardTabJourney` runs via **correct** `checkA11y({ label, customChecks: [...] })` pattern (no crash).
 3. **A2** — Correct labels → journey **passes** (no false fail on matching focus order).
 4. **A3** — Wrong / reversed labels → journey **fails** with real findings (not hollow “0 violations”).
@@ -113,9 +144,9 @@ It does **not** fill Username/Password fields if the **spec itself** clicks logi
 
 ### Step 0 — Install (Marketplace only)
 
-1. Extensions → **A11y Studio** → **1.0.24** (Marketplace — **no VSIX**).
+1. Extensions → **A11y Studio** → **1.0.26** (Marketplace — **no VSIX**).
 2. Command Palette → **Developer: Reload Window**.
-3. Confirm version on the Extensions detail page — must say **1.0.24**.
+3. Confirm version on the Extensions detail page — must say **1.0.26**.
 
 ### Step 1 — Open Flow Runner
 
@@ -189,16 +220,16 @@ await checkA11y(page, A11yStudioChecks.keyboardTabJourney(['…']), context);
 
 | Output signal | Owner | Next action |
 | --- | --- | --- |
-| Still on **≤1.0.23** | **install** | Update Marketplace to **1.0.24** + Reload — retest invalid until then |
-| Brief still says **1.0.23** as floor / Gates (a)+(b) as current | **stale cache** | Refetch raw / cache-bust URL above |
+| Still on **≤1.0.25** | **install** | Update Marketplace to **1.0.26** + Reload — retest invalid until then |
+| Brief still says **1.0.24** as *current* floor (no Job A/B) | **stale cache** | Refetch raw / cache-bust URL above |
 | URL / 404 / `NoSuchKey` | **environment** | Stop; env owners fix URL |
-| `Cannot read properties of undefined (reading 'replace')` | **install / API** | Must be on **1.0.24** + use `customChecks: []` wrapper |
+| `Cannot read properties of undefined (reading 'replace')` | **install / API** | Must be on **≥1.0.24** + use `customChecks: []` wrapper |
 | A3 still **passes** with wrong labels | **product** | Hollow success — escalate (blocker) |
-| L2 shows `— skip` but findings exist | **product** | Escalate (1.0.24 should map keyboard customs to L2) |
-| Badge → “Could not open Flow Runner” | **product** | Escalate (fixed on 1.0.24 — retest after update) |
+| L2 shows `— skip` but findings exist | **product** | Escalate (keyboard customs → L2 since 1.0.24) |
+| Badge → “Could not open Flow Runner” | **product** | Escalate (fixed 1.0.24 — retest on 1.0.26) |
 | Spec timeout on login `getByTestId` / username | **spec / app** | Not Section A — fix journey or storageState |
-| Checkpoint URL host ≠ env `baseUrl` (e.g. public `www.*` while env is `local.*`) | **session / product** | Treat run **INVALID** — re-save auth, re-run A2/A3; Marketplace **≥1.0.25** will badge URL-origin mismatch (shipping). Until then: check `latest.json` checkpoint `url` vs provenance `baseUrl` |
-| Findings **1–6** listed as open while on **1.0.24** | **stale Copilot memory** | Re-read this brief — those are **CLOSED on 1.0.24** |
+| Checkpoint URL host ≠ env `baseUrl` (e.g. public `www.*` while env is `local.*`) | **session / product** | Treat run **INVALID** — re-save auth, re-run A2/A3; **1.0.26** badges URL-origin mismatch |
+| Findings **1–6** listed as open while on **≥1.0.24** | **stale Copilot memory** | Re-read this brief — those are **CLOSED since 1.0.24** |
 | Record flow / Tab presses / `test('test')` | **not Section A** | Record≠keyboard; use Add checkpoint journey for A |
 | Expand all broken | **vendor-roadmap** | Skip |
 
@@ -208,34 +239,34 @@ Do **not** use public sauce-demo as a substitute for this adoption repo.
 
 ## Document revision
 
-**Document revision:** **2026-08-04** · **Supersedes all earlier versions of this URL**  
+**Document revision:** **2026-08-19** · **Supersedes all earlier versions of this URL**  
 **GitHub:** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 **Canonical raw:** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
 
 | Field | Value |
 | --- | --- |
-| **This revision** | **2026-08-04** — Marketplace **1.0.24**; Section **A** required gate (API + A2/A3 + L2 + panel badge); Section **B** optional |
-| **Marketplace floor** | **v1.0.24** LIVE |
-| **Copilot workspace** | **Customer monorepo only** |
+| **This revision** | **2026-08-19** — Job A laptop **1.0.26** (Section A + Flow HTML) · Job B vendor Flow/specs/P2 · unified report parked |
+| **Marketplace floor** | **v1.0.26** LIVE |
+| **Copilot workspace** | Job A = customer monorepo · Job B = vendor `a11ystudio/a11y-studio` |
 | **Naming** | Reports stay **neutral** — no customer org, repo, hostname, or project codenames |
 | **URL** | **Unchanged** — same media path Copilot already bookmarks |
 
 ### How to read this page (anti-stale)
 
-1. Confirm **Document revision** is **2026-08-04** (or newer) and floor **v1.0.24**. If brief still says **1.0.23** or **1.0.18**, refetch raw URL (hard refresh / cache-bust).
+1. Confirm **Document revision** is **2026-08-19** (or newer) and floor **v1.0.26**. If brief still says **1.0.24** as *the* current floor with no Job A/B, refetch raw URL.
 2. Only sections marked **CURRENT** are actionable. **YOUR TODO NOW** + **GATE PATH** + **FINAL EXPECTATION** are the priority.
 3. Sections marked **HISTORICAL** are context only.
 4. If two bullets disagree, the **newer dated** block wins.
 
 ### Install (CURRENT)
 
-**Extension:** Marketplace **`a11ystudio.a11y-studio` `1.0.24`**
+**Extension:** Marketplace **`a11ystudio.a11y-studio` `1.0.26`**
 
-1. Extensions → A11y Studio → update to **1.0.24**.
+1. Extensions → A11y Studio → update to **1.0.26**.
 2. **Developer: Reload Window**.
 3. Confirm version in Extensions detail.
 
-### Shipped focus for this laptop (1.0.24)
+### Shipped focus for this laptop (1.0.26)
 
 | Item | Why it matters |
 | --- | --- |
@@ -257,8 +288,8 @@ Do **not** use public sauce-demo as a substitute for this adoption repo.
 ### CURRENT (2026-08-04) — Copilot report block (fill and return)
 
 ```
-### 1.0.24 smoke A — Section A gate (required)
-Extension version installed: ______ (must be 1.0.24 — Marketplace only, no VSIX)
+### 1.0.26 smoke A — Section A gate (required)
+Extension version installed: ______ (must be 1.0.26 — Marketplace only, no VSIX)
 Reload Window done: yes / no
 Pair run with human: yes / no
 Flow package chosen: yes / no
@@ -275,7 +306,7 @@ A4 focus trap Tab+Shift+Tab: PASS | FAIL | SKIP — …
 Notes / Output excerpt (neutral — no org/repo/host names):
 ______
 
-### 1.0.24 smoke B — P1-11 catch-up (optional)
+### 1.0.26 smoke B — P1-11 catch-up (optional)
 B1 Confluence Connect→Publish: PASS | FAIL | SKIP — …
 B2 CLI vendor honesty: PASS | FAIL | SKIP — …
 B3 Why on disabled chips: PASS | FAIL | SKIP — …
@@ -286,8 +317,8 @@ Notes (neutral): ______
 
 ### What Copilot says to the human at start of session
 
-> Open this brief (same GitHub/raw link you already use). Install Marketplace **1.0.24** only (no VSIX), Reload Window, confirm version. We do **Section A** first: `keyboardTabJourney` must use `customChecks: […]` inside `checkA11y`. Correct labels pass; wrong labels must fail; L2 in the HTML report must show fail; the violations badge must open Flow Runner. Gates (a)/(b) are already closed — do not make them the main todo. You click; I read Output and fill the report block. We stop if the URL is not app HTML. **Gate closes only when Section A overall is PASS.**
+> Open this brief (same GitHub/raw link). **Laptop:** Marketplace **1.0.26**, Section A + Flow HTML, [#303](https://github.com/a11ystudio/a11y-studio/issues/303). **Vendor repo:** Job B — Flow Runner / specs / POLICY P2; report parked; no Chrome tree. You click on laptop; I read Output. In vendor repo I implement with tests. **Do not mix jobs.**
 
 ### HISTORICAL — prior floors
 
-Earlier briefs targeted **1.0.11–1.0.23** and Gates **(a)**/**(b)**. Prefer **1.0.24** + **Section A** for all new runs. Prior TODO tables that only mention Gate 3 or 1.0.18/1.0.19/1.0.23 as current are obsolete for this adoption session.
+Earlier briefs targeted **1.0.11–1.0.24** and Gates **(a)**/**(b)**. Prefer **1.0.26** + **Section A** (Job A) or **Job B** in the vendor repo. Prior TODO tables that only mention Gate 3 or 1.0.18–1.0.24 as *current* are obsolete.
