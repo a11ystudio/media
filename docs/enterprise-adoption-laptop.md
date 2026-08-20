@@ -1,6 +1,6 @@
 # A11y Studio — Copilot brief (laptop + vendor)
 
-## COPILOT — OPEN THIS URL (CURRENT 2026-08-19b)
+## COPILOT — OPEN THIS URL (CURRENT 2026-08-20)
 
 **GitHub (read here):** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 
@@ -8,7 +8,7 @@
 
 **Cache-bust fetch (prefer if page looks old):** https://cdn.jsdelivr.net/gh/a11ystudio/media@main/docs/enterprise-adoption-laptop.md  
 
-**Do not change this URL.** If the page still says **1.0.24** / **1.0.23** as the *current* floor, or has **no Vendor matrix mapping** section, hard-refresh or use raw / jsDelivr — this file is **1.0.26** + matrix (**2026-08-19b**).
+**Do not change this URL.** If the page has **no Vendor reply to laptop §7** section, hard-refresh or use raw / jsDelivr — this file is **1.0.26** + matrix + **2026-08-20 vendor reply**.
 
 The human cannot paste long chat instructions. This page is the vendor message. **Pick Job A or Job B. Do not mix in one session.**
 
@@ -96,7 +96,7 @@ Pair-run protocol. Env keys below are **human-designated for this run only** —
 | # | Todo | Owner | Done when |
 | --- | --- | --- | --- |
 | **T1** | Confirm extension is **1.0.26** + **Reload Window** | Human + Copilot | Version verified — **not** ≤1.0.25 |
-| **T1b** | Copilot re-reads this GitHub brief (same URL) after hard-refresh | Copilot | Brief shows **1.0.26** / Job A vs Job B / **Vendor matrix mapping** — not stale 1.0.24-only |
+| **T1b** | Copilot re-reads this GitHub brief (same URL) after hard-refresh | Copilot | Brief shows **1.0.26** / Job A vs Job B / **Vendor matrix mapping** / **Vendor reply §7** — not stale 1.0.24-only |
 | **T2** | Flow package chosen; trusted workspace; healthy env URL (human designates) | Human | App HTML (not 404 / `NoSuchKey`) |
 | **T3** | **A1** — API present; use **`customChecks: [A11yStudioChecks.keyboardTabJourney([...])]`** inside `checkA11y` options (never as 2nd arg alone) | Human + Copilot | No opaque `replace` crash; clear error if API misused |
 | **T4** | **A2** — Run with **correct** focus labels → must **PASS** | Human + Copilot | Journey green; L1 axe may pass; L2 may pass or N/A if no contract |
@@ -130,7 +130,7 @@ Laptop Copilot pasted an internal go/no-go sheet. **Do not copy customer org, re
 | **REP1** | Fresh Flow HTML (checkpoints, findings, tree, L2) | **Required** with Section A / T8b after auth refresh |
 | **UX1** | CLI install → panel refresh without Reload Window | **Re-verify on 1.0.26** — shipped **P1-07 / #280**. Quoted “stale until Reload” is **not** a 1.0.26 Block until it fails after Reload on 1.0.26. |
 | **UX2** | Monorepo eslint discovery | **Re-verify on 1.0.26** — shipped **P1-08 / #280**. Live copy is `No eslint.config.* in <folder> or any parent folder`. The old `in this folder` string is **pre-#280**. Re-run nested scan; if it still fails, then escalate. |
-| **UX3 / PUB1** | Vendored `studio-cli.cjs` runnable (`--help` / `summarize --flow`) | **Vendor bug on 1.0.26** — file present ≠ runnable. `Cannot find module '@html-eslint/eslint-plugin'` is **CLI-VENDOR-HTML-ESLINT** (Cursor). **Do not** npm-install `@html-eslint` into the customer repo as the product path. **Do not** treat as a customer-repo defect. Note FAIL on B2 / PUB1; continue Section A. Fix rides a **later Marketplace cut** + Refresh vendored engine. |
+| **UX3 / PUB1** | Vendored `studio-cli.cjs` runnable (`--help` / `summarize --flow`) | **Known FAIL on Marketplace 1.0.26.** Fixed on vendor **`main`** [#350](https://github.com/a11ystudio/a11y-studio/pull/350) — **not** in the VSIX until next publish. **Do not** npm-install `@html-eslint`. Note FAIL; continue Section A. After next Marketplace cut: Reload + **Refresh vendored engine**. |
 | **PUB2** | Repo-owned Confluence publisher script | **Accept with mitigation** — keep using it until vendor CLI ships the html-eslint bundle |
 | **R2** | Formal JSON schema doc | **Not a Marketplace Block** — nice-to-have |
 | **MCP1 / MCP2** | MCP npx / live scan | **Not a Marketplace Block** — local IT / npm cache; MCP is not bundled as the Marketplace engine |
@@ -140,7 +140,54 @@ Laptop Copilot pasted an internal go/no-go sheet. **Do not copy customer org, re
 
 ---
 
-## FINAL EXPECTATION — when is the required gate CLOSED?
+## CURRENT — Vendor reply to laptop §7 (2026-08-20)
+
+Laptop Job A sent a status update. **Vendor agrees:** Section A **KEEP OPEN** until authenticated A2/A3 evidence exists on **1.0.26**. No adopt-ready claim. Do **not** npm-install `@html-eslint` into the customer repo.
+
+### Ask 1 — Expected **1.0.26** behavior + minimum evidence
+
+| Check | Expected on Marketplace **1.0.26** | Minimum evidence to close |
+| --- | --- | --- |
+| **A2** | Correct focus labels → keyboard journey **PASS** | Output / Problems show journey pass; report block A2 = PASS |
+| **A3** | Reversed or wrong labels → **FAIL** with real findings (not hollow 0 violations) | Findings present; report block A3 = PASS (meaning “fail correctly”) |
+| **A3b / L2** | Keyboard-tab-journey findings map to matrix **L2 = fail** (not `— skip`) | Fresh Flow HTML after A3; L2 cell = fail |
+| **A3c** | Status / Problems **“N flow violations”** opens Flow Runner (no Reload Window) | Click badge → panel opens |
+| **REP1** | Fresh HTML has checkpoints, findings, a11y-tree preview, relevant L2 | Open latest Flow HTML after A2/A3 |
+
+**Precondition:** healthy env URL (app HTML) + **fresh authenticated storageState** for the env under test. No-auth known-violation PASS does **not** close Section A.
+
+### Ask 2 — Vendored CLI / html-eslint (UX3/PUB1)
+
+| Fact | Detail |
+| --- | --- |
+| **1.0.26 Marketplace** | Known FAIL: `node .a11y-studio/studio-cli.cjs --help` may throw `Cannot find module '@html-eslint/eslint-plugin'`. File-on-disk ≠ runnable. |
+| **Vendor git** | Fixed on **`main`** — [#350](https://github.com/a11ystudio/a11y-studio/pull/350) (**CLI-VENDOR-HTML-ESLINT**): VSIX bundles `@html-eslint/eslint-plugin` + `minimatch`; keeps **`eslint` external** (customer package still needs ESLint). |
+| **Next Marketplace version** | **Not numbered yet.** Ships on the **next** `publish vX.Y.Z` after #350. Until then: note UX3/PUB1 FAIL; continue Section A; keep **PUB2** Confluence script as mitigation. After that cut: update Marketplace + Reload + **Refresh vendored engine** (or reinstall Studio CLI from the panel). |
+
+### Ask 3 — Versioned schema / artifact contract (R2)
+
+**Not a Section A Block.** No separate published JSON Schema package yet. Stable fields on **1.0.26** (sanitized — **no URLs / secrets**):
+
+| Artifact | Contract (observe these keys) |
+| --- | --- |
+| **`.a11y-studio/support-bundle.json`** | `writtenAt`, `extensionVersion`, `command`, `platform`, `arch`, `vscodeVersion`, `flowPackage`, Playwright setup + spec lists, `environments` / `environmentDetails` (`name`, `urlPresent`, `authProfile`), `activeEnvironment`, Confluence readiness flags, optional `flowRunPlan` / `flowRunPlanRelativePath`, optional section-B snippet |
+| **`.a11y-studio/flow-run-plan.json`** | `writtenAt`, `activeEnvironment`, `authProfile`, `knownEnvironments`, `summary`, `decisions[]` with `spec`, `action` (`run`\|`skip`), `reason`, `authProfile` |
+| **Flow HTML** (`reports/…/latest.html`) | Verdict + transcript / spoken journey + findings + a11y-tree preview + L1–L4 matrix (keyboard customs → **L2**). Zero checkpoints = **not-scanned**, not a clean pass |
+
+Formal standalone schema docs = backlog nice-to-have; do **not** hold adopt on R2.
+
+### Ask 4 — MCP pin for enterprise
+
+| Guidance | Detail |
+| --- | --- |
+| **Yes — prefer a pin** | For enterprise reproducibility, pin **`@a11ystudio/mcp-server@0.3.1`** (current npm release). Unpinned `npx -y @a11ystudio/mcp-server` is a convenience default, not an enterprise mandate. |
+| **Scope** | MCP is **not** the Marketplace extension engine and **not** part of the Section A gate. Local npm-cache / IT issues are not Marketplace Blocks. |
+
+### Vendor gate stance (matches laptop)
+
+**Section A: KEEP OPEN** until A2/A3/A3b/A3c (+ REP1) pass on **1.0.26** with fresh auth. UX3 does **not** block Section A close.
+
+---
 
 **Section A overall = PASS** (and the gate may close) **only if all of the following are true:**
 
@@ -267,13 +314,13 @@ Do **not** use public sauce-demo as a substitute for this adoption repo.
 
 ## Document revision
 
-**Document revision:** **2026-08-19b** · **Supersedes all earlier versions of this URL**  
+**Document revision:** **2026-08-20** · **Supersedes all earlier versions of this URL**  
 **GitHub:** https://github.com/a11ystudio/media/blob/main/docs/enterprise-adoption-laptop.md  
 **Canonical raw:** https://raw.githubusercontent.com/a11ystudio/media/main/docs/enterprise-adoption-laptop.md  
 
 | Field | Value |
 | --- | --- |
-| **This revision** | **2026-08-19b** — Job A laptop **1.0.26** + matrix mapping · UX3/PUB1 = vendor CLI html-eslint · Job B POLICY P2 (no CLI duplicate) · report parked |
+| **This revision** | **2026-08-20** — Vendor reply to laptop §7 · Job A **1.0.26** · UX3 fixed on git #350 (not Marketplace yet) · Section A KEEP OPEN until auth A2/A3 |
 | **Marketplace floor** | **v1.0.26** LIVE |
 | **Copilot workspace** | Job A = customer monorepo · Job B = vendor `a11ystudio/a11y-studio` |
 | **Naming** | Reports stay **neutral** — no customer org, repo, hostname, or project codenames |
@@ -281,7 +328,7 @@ Do **not** use public sauce-demo as a substitute for this adoption repo.
 
 ### How to read this page (anti-stale)
 
-1. Confirm **Document revision** is **2026-08-19b** (or newer) and floor **v1.0.26**. If brief still says **1.0.24** as *the* current floor with no Job A/B / no **Vendor matrix mapping**, refetch raw URL.
+1. Confirm **Document revision** is **2026-08-20** (or newer) and floor **v1.0.26**. If brief has no **Vendor reply to laptop §7**, refetch raw URL.
 2. Only sections marked **CURRENT** are actionable. **YOUR TODO NOW** + **GATE PATH** + **FINAL EXPECTATION** are the priority.
 3. Sections marked **HISTORICAL** are context only.
 4. If two bullets disagree, the **newer dated** block wins.
